@@ -15,6 +15,8 @@
 		6A47EBC720C5C4F5003BD42B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A47EBC520C5C4F5003BD42B /* LaunchScreen.storyboard */; };
 		6A47EBD220C5C4F5003BD42B /* reesebotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBD120C5C4F5003BD42B /* reesebotTests.swift */; };
 		6A47EBDD20C5C4F5003BD42B /* reesebotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBDC20C5C4F5003BD42B /* reesebotUITests.swift */; };
+		6A7E255B20C5D5230098F6FC /* AssistantV1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A47EBEB20C5D048003BD42B /* AssistantV1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6A7E255C20C5D5820098F6FC /* AssistantV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A47EBEB20C5D048003BD42B /* AssistantV1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6A7E255820C5D51C0098F6FC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6A7E255B20C5D5230098F6FC /* AssistantV1.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6A47EBB620C5C4F3003BD42B /* reesebot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reesebot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A47EBB920C5C4F3003BD42B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +65,7 @@
 		6A47EBD820C5C4F5003BD42B /* reesebotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reesebotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A47EBDC20C5C4F5003BD42B /* reesebotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reesebotUITests.swift; sourceTree = "<group>"; };
 		6A47EBDE20C5C4F5003BD42B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A47EBEB20C5D048003BD42B /* AssistantV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssistantV1.framework; path = Carthage/Build/iOS/AssistantV1.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A7E255C20C5D5820098F6FC /* AssistantV1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +101,7 @@
 				6A47EBD020C5C4F5003BD42B /* reesebotTests */,
 				6A47EBDB20C5C4F5003BD42B /* reesebotUITests */,
 				6A47EBB720C5C4F3003BD42B /* Products */,
+				6A47EBEA20C5D048003BD42B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +147,14 @@
 			path = reesebotUITests;
 			sourceTree = "<group>";
 		};
+		6A47EBEA20C5D048003BD42B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A47EBEB20C5D048003BD42B /* AssistantV1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +165,8 @@
 				6A47EBB220C5C4F3003BD42B /* Sources */,
 				6A47EBB320C5C4F3003BD42B /* Frameworks */,
 				6A47EBB420C5C4F3003BD42B /* Resources */,
+				6A47EBED20C5D075003BD42B /* ShellScript */,
+				6A7E255820C5D51C0098F6FC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,6 +282,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A47EBED20C5D075003BD42B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6A47EBB220C5C4F3003BD42B /* Sources */ = {
@@ -436,6 +481,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74EVD73P3D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = reesebot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -454,6 +503,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74EVD73P3D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = reesebot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
