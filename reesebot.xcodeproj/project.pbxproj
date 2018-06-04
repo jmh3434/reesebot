@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6A47EBBA20C5C4F3003BD42B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBB920C5C4F3003BD42B /* AppDelegate.swift */; };
+		6A47EBBC20C5C4F3003BD42B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBBB20C5C4F3003BD42B /* ViewController.swift */; };
+		6A47EBBF20C5C4F3003BD42B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A47EBBD20C5C4F3003BD42B /* Main.storyboard */; };
+		6A47EBC220C5C4F3003BD42B /* reesebot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBC020C5C4F3003BD42B /* reesebot.xcdatamodeld */; };
+		6A47EBC420C5C4F5003BD42B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A47EBC320C5C4F5003BD42B /* Assets.xcassets */; };
+		6A47EBC720C5C4F5003BD42B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A47EBC520C5C4F5003BD42B /* LaunchScreen.storyboard */; };
+		6A47EBD220C5C4F5003BD42B /* reesebotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBD120C5C4F5003BD42B /* reesebotTests.swift */; };
+		6A47EBDD20C5C4F5003BD42B /* reesebotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBDC20C5C4F5003BD42B /* reesebotUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6A47EBCE20C5C4F5003BD42B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6A47EBAE20C5C4F3003BD42B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A47EBB520C5C4F3003BD42B;
+			remoteInfo = reesebot;
+		};
+		6A47EBD920C5C4F5003BD42B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6A47EBAE20C5C4F3003BD42B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A47EBB520C5C4F3003BD42B;
+			remoteInfo = reesebot;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6A47EBB620C5C4F3003BD42B /* reesebot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reesebot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A47EBB920C5C4F3003BD42B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6A47EBBB20C5C4F3003BD42B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6A47EBBE20C5C4F3003BD42B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6A47EBC120C5C4F3003BD42B /* reesebot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = reesebot.xcdatamodel; sourceTree = "<group>"; };
+		6A47EBC320C5C4F5003BD42B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6A47EBC620C5C4F5003BD42B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6A47EBC820C5C4F5003BD42B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A47EBCD20C5C4F5003BD42B /* reesebotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reesebotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A47EBD120C5C4F5003BD42B /* reesebotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reesebotTests.swift; sourceTree = "<group>"; };
+		6A47EBD320C5C4F5003BD42B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A47EBD820C5C4F5003BD42B /* reesebotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reesebotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A47EBDC20C5C4F5003BD42B /* reesebotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reesebotUITests.swift; sourceTree = "<group>"; };
+		6A47EBDE20C5C4F5003BD42B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6A47EBB320C5C4F3003BD42B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A47EBCA20C5C4F5003BD42B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A47EBD520C5C4F5003BD42B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6A47EBAD20C5C4F3003BD42B = {
+			isa = PBXGroup;
+			children = (
+				6A47EBB820C5C4F3003BD42B /* reesebot */,
+				6A47EBD020C5C4F5003BD42B /* reesebotTests */,
+				6A47EBDB20C5C4F5003BD42B /* reesebotUITests */,
+				6A47EBB720C5C4F3003BD42B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6A47EBB720C5C4F3003BD42B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6A47EBB620C5C4F3003BD42B /* reesebot.app */,
+				6A47EBCD20C5C4F5003BD42B /* reesebotTests.xctest */,
+				6A47EBD820C5C4F5003BD42B /* reesebotUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6A47EBB820C5C4F3003BD42B /* reesebot */ = {
+			isa = PBXGroup;
+			children = (
+				6A47EBB920C5C4F3003BD42B /* AppDelegate.swift */,
+				6A47EBBB20C5C4F3003BD42B /* ViewController.swift */,
+				6A47EBBD20C5C4F3003BD42B /* Main.storyboard */,
+				6A47EBC320C5C4F5003BD42B /* Assets.xcassets */,
+				6A47EBC520C5C4F5003BD42B /* LaunchScreen.storyboard */,
+				6A47EBC820C5C4F5003BD42B /* Info.plist */,
+				6A47EBC020C5C4F3003BD42B /* reesebot.xcdatamodeld */,
+			);
+			path = reesebot;
+			sourceTree = "<group>";
+		};
+		6A47EBD020C5C4F5003BD42B /* reesebotTests */ = {
+			isa = PBXGroup;
+			children = (
+				6A47EBD120C5C4F5003BD42B /* reesebotTests.swift */,
+				6A47EBD320C5C4F5003BD42B /* Info.plist */,
+			);
+			path = reesebotTests;
+			sourceTree = "<group>";
+		};
+		6A47EBDB20C5C4F5003BD42B /* reesebotUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6A47EBDC20C5C4F5003BD42B /* reesebotUITests.swift */,
+				6A47EBDE20C5C4F5003BD42B /* Info.plist */,
+			);
+			path = reesebotUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6A47EBB520C5C4F3003BD42B /* reesebot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A47EBE120C5C4F5003BD42B /* Build configuration list for PBXNativeTarget "reesebot" */;
+			buildPhases = (
+				6A47EBB220C5C4F3003BD42B /* Sources */,
+				6A47EBB320C5C4F3003BD42B /* Frameworks */,
+				6A47EBB420C5C4F3003BD42B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = reesebot;
+			productName = reesebot;
+			productReference = 6A47EBB620C5C4F3003BD42B /* reesebot.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6A47EBCC20C5C4F5003BD42B /* reesebotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A47EBE420C5C4F5003BD42B /* Build configuration list for PBXNativeTarget "reesebotTests" */;
+			buildPhases = (
+				6A47EBC920C5C4F5003BD42B /* Sources */,
+				6A47EBCA20C5C4F5003BD42B /* Frameworks */,
+				6A47EBCB20C5C4F5003BD42B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A47EBCF20C5C4F5003BD42B /* PBXTargetDependency */,
+			);
+			name = reesebotTests;
+			productName = reesebotTests;
+			productReference = 6A47EBCD20C5C4F5003BD42B /* reesebotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6A47EBD720C5C4F5003BD42B /* reesebotUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A47EBE720C5C4F5003BD42B /* Build configuration list for PBXNativeTarget "reesebotUITests" */;
+			buildPhases = (
+				6A47EBD420C5C4F5003BD42B /* Sources */,
+				6A47EBD520C5C4F5003BD42B /* Frameworks */,
+				6A47EBD620C5C4F5003BD42B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A47EBDA20C5C4F5003BD42B /* PBXTargetDependency */,
+			);
+			name = reesebotUITests;
+			productName = reesebotUITests;
+			productReference = 6A47EBD820C5C4F5003BD42B /* reesebotUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6A47EBAE20C5C4F3003BD42B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "James Hunt";
+				TargetAttributes = {
+					6A47EBB520C5C4F3003BD42B = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					6A47EBCC20C5C4F5003BD42B = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 6A47EBB520C5C4F3003BD42B;
+					};
+					6A47EBD720C5C4F5003BD42B = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 6A47EBB520C5C4F3003BD42B;
+					};
+				};
+			};
+			buildConfigurationList = 6A47EBB120C5C4F3003BD42B /* Build configuration list for PBXProject "reesebot" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6A47EBAD20C5C4F3003BD42B;
+			productRefGroup = 6A47EBB720C5C4F3003BD42B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6A47EBB520C5C4F3003BD42B /* reesebot */,
+				6A47EBCC20C5C4F5003BD42B /* reesebotTests */,
+				6A47EBD720C5C4F5003BD42B /* reesebotUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6A47EBB420C5C4F3003BD42B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A47EBC720C5C4F5003BD42B /* LaunchScreen.storyboard in Resources */,
+				6A47EBC420C5C4F5003BD42B /* Assets.xcassets in Resources */,
+				6A47EBBF20C5C4F3003BD42B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A47EBCB20C5C4F5003BD42B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A47EBD620C5C4F5003BD42B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6A47EBB220C5C4F3003BD42B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A47EBBC20C5C4F3003BD42B /* ViewController.swift in Sources */,
+				6A47EBBA20C5C4F3003BD42B /* AppDelegate.swift in Sources */,
+				6A47EBC220C5C4F3003BD42B /* reesebot.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A47EBC920C5C4F5003BD42B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A47EBD220C5C4F5003BD42B /* reesebotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A47EBD420C5C4F5003BD42B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A47EBDD20C5C4F5003BD42B /* reesebotUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6A47EBCF20C5C4F5003BD42B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A47EBB520C5C4F3003BD42B /* reesebot */;
+			targetProxy = 6A47EBCE20C5C4F5003BD42B /* PBXContainerItemProxy */;
+		};
+		6A47EBDA20C5C4F5003BD42B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A47EBB520C5C4F3003BD42B /* reesebot */;
+			targetProxy = 6A47EBD920C5C4F5003BD42B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6A47EBBD20C5C4F3003BD42B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A47EBBE20C5C4F3003BD42B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6A47EBC520C5C4F5003BD42B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A47EBC620C5C4F5003BD42B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6A47EBDF20C5C4F5003BD42B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6A47EBE020C5C4F5003BD42B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6A47EBE220C5C4F5003BD42B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74EVD73P3D;
+				INFOPLIST_FILE = reesebot/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jameshunt.reesebot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6A47EBE320C5C4F5003BD42B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74EVD73P3D;
+				INFOPLIST_FILE = reesebot/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jameshunt.reesebot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6A47EBE520C5C4F5003BD42B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74EVD73P3D;
+				INFOPLIST_FILE = reesebotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jameshunt.reesebotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reesebot.app/reesebot";
+			};
+			name = Debug;
+		};
+		6A47EBE620C5C4F5003BD42B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74EVD73P3D;
+				INFOPLIST_FILE = reesebotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jameshunt.reesebotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reesebot.app/reesebot";
+			};
+			name = Release;
+		};
+		6A47EBE820C5C4F5003BD42B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74EVD73P3D;
+				INFOPLIST_FILE = reesebotUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jameshunt.reesebotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = reesebot;
+			};
+			name = Debug;
+		};
+		6A47EBE920C5C4F5003BD42B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74EVD73P3D;
+				INFOPLIST_FILE = reesebotUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jameshunt.reesebotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = reesebot;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6A47EBB120C5C4F3003BD42B /* Build configuration list for PBXProject "reesebot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A47EBDF20C5C4F5003BD42B /* Debug */,
+				6A47EBE020C5C4F5003BD42B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A47EBE120C5C4F5003BD42B /* Build configuration list for PBXNativeTarget "reesebot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A47EBE220C5C4F5003BD42B /* Debug */,
+				6A47EBE320C5C4F5003BD42B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A47EBE420C5C4F5003BD42B /* Build configuration list for PBXNativeTarget "reesebotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A47EBE520C5C4F5003BD42B /* Debug */,
+				6A47EBE620C5C4F5003BD42B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A47EBE720C5C4F5003BD42B /* Build configuration list for PBXNativeTarget "reesebotUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A47EBE820C5C4F5003BD42B /* Debug */,
+				6A47EBE920C5C4F5003BD42B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6A47EBC020C5C4F3003BD42B /* reesebot.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6A47EBC120C5C4F3003BD42B /* reesebot.xcdatamodel */,
+			);
+			currentVersion = 6A47EBC120C5C4F3003BD42B /* reesebot.xcdatamodel */;
+			path = reesebot.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6A47EBAE20C5C4F3003BD42B /* Project object */;
+}
