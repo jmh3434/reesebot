@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E033FEFC4AA9C753A0371D8 /* Pods_reesebotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D424A552874E8FBDC429C30 /* Pods_reesebotUITests.framework */; };
 		6A47EBBA20C5C4F3003BD42B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBB920C5C4F3003BD42B /* AppDelegate.swift */; };
 		6A47EBBC20C5C4F3003BD42B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBBB20C5C4F3003BD42B /* ViewController.swift */; };
 		6A47EBBF20C5C4F3003BD42B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A47EBBD20C5C4F3003BD42B /* Main.storyboard */; };
@@ -17,6 +18,8 @@
 		6A47EBDD20C5C4F5003BD42B /* reesebotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBDC20C5C4F5003BD42B /* reesebotUITests.swift */; };
 		6A7E255B20C5D5230098F6FC /* AssistantV1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A47EBEB20C5D048003BD42B /* AssistantV1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6A7E255C20C5D5820098F6FC /* AssistantV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A47EBEB20C5D048003BD42B /* AssistantV1.framework */; };
+		C33677D5ABC78AFE43EEC58D /* Pods_reesebot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF1FC92CCB8CD9D811D954C /* Pods_reesebot.framework */; };
+		E1FAC3AE48FAF14B8B89929B /* Pods_reesebotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181FC25CF44E64713C5A0A9C /* Pods_reesebotTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14B6FA63FDCA956602FFD9E4 /* Pods-reesebotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reesebotUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-reesebotUITests/Pods-reesebotUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		181FC25CF44E64713C5A0A9C /* Pods_reesebotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reesebotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CF1FC92CCB8CD9D811D954C /* Pods_reesebot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reesebot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F1C5A51F9912566C1C2A15E /* Pods-reesebotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reesebotUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-reesebotUITests/Pods-reesebotUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5EB2342A626C79CD8A51956C /* Pods-reesebotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reesebotTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-reesebotTests/Pods-reesebotTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6A47EBB620C5C4F3003BD42B /* reesebot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reesebot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A47EBB920C5C4F3003BD42B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A47EBBB20C5C4F3003BD42B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +74,11 @@
 		6A47EBDC20C5C4F5003BD42B /* reesebotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reesebotUITests.swift; sourceTree = "<group>"; };
 		6A47EBDE20C5C4F5003BD42B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A47EBEB20C5D048003BD42B /* AssistantV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssistantV1.framework; path = Carthage/Build/iOS/AssistantV1.framework; sourceTree = "<group>"; };
+		6A815BC420C5DF8D008F7266 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "reesebot/Bridging-Header.h"; sourceTree = "<group>"; };
+		6C9B8A90BA2B1EF3104A5EFB /* Pods-reesebotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reesebotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-reesebotTests/Pods-reesebotTests.release.xcconfig"; sourceTree = "<group>"; };
+		6D424A552874E8FBDC429C30 /* Pods_reesebotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reesebotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C5BD553A3A7261F849B4471 /* Pods-reesebot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reesebot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-reesebot/Pods-reesebot.debug.xcconfig"; sourceTree = "<group>"; };
+		CF273E3AF8A7DFDA5F6F2282 /* Pods-reesebot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reesebot.release.xcconfig"; path = "Pods/Target Support Files/Pods-reesebot/Pods-reesebot.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A7E255C20C5D5820098F6FC /* AssistantV1.framework in Frameworks */,
+				C33677D5ABC78AFE43EEC58D /* Pods_reesebot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1FAC3AE48FAF14B8B89929B /* Pods_reesebotTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E033FEFC4AA9C753A0371D8 /* Pods_reesebotUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,11 +113,13 @@
 		6A47EBAD20C5C4F3003BD42B = {
 			isa = PBXGroup;
 			children = (
+				6A815BC420C5DF8D008F7266 /* Bridging-Header.h */,
 				6A47EBB820C5C4F3003BD42B /* reesebot */,
 				6A47EBD020C5C4F5003BD42B /* reesebotTests */,
 				6A47EBDB20C5C4F5003BD42B /* reesebotUITests */,
 				6A47EBB720C5C4F3003BD42B /* Products */,
 				6A47EBEA20C5D048003BD42B /* Frameworks */,
+				78277310F178D540452B4AFB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,8 +169,24 @@
 			isa = PBXGroup;
 			children = (
 				6A47EBEB20C5D048003BD42B /* AssistantV1.framework */,
+				3CF1FC92CCB8CD9D811D954C /* Pods_reesebot.framework */,
+				181FC25CF44E64713C5A0A9C /* Pods_reesebotTests.framework */,
+				6D424A552874E8FBDC429C30 /* Pods_reesebotUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		78277310F178D540452B4AFB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C5BD553A3A7261F849B4471 /* Pods-reesebot.debug.xcconfig */,
+				CF273E3AF8A7DFDA5F6F2282 /* Pods-reesebot.release.xcconfig */,
+				5EB2342A626C79CD8A51956C /* Pods-reesebotTests.debug.xcconfig */,
+				6C9B8A90BA2B1EF3104A5EFB /* Pods-reesebotTests.release.xcconfig */,
+				14B6FA63FDCA956602FFD9E4 /* Pods-reesebotUITests.debug.xcconfig */,
+				3F1C5A51F9912566C1C2A15E /* Pods-reesebotUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,11 +196,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A47EBE120C5C4F5003BD42B /* Build configuration list for PBXNativeTarget "reesebot" */;
 			buildPhases = (
+				AAFF964E6A7A5E8AEFAABE5A /* [CP] Check Pods Manifest.lock */,
 				6A47EBB220C5C4F3003BD42B /* Sources */,
 				6A47EBB320C5C4F3003BD42B /* Frameworks */,
 				6A47EBB420C5C4F3003BD42B /* Resources */,
 				6A47EBED20C5D075003BD42B /* ShellScript */,
 				6A7E255820C5D51C0098F6FC /* Embed Frameworks */,
+				688B6D4F3180E0A65960AD50 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -181,6 +217,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A47EBE420C5C4F5003BD42B /* Build configuration list for PBXNativeTarget "reesebotTests" */;
 			buildPhases = (
+				89D13E339404C23597301A3B /* [CP] Check Pods Manifest.lock */,
 				6A47EBC920C5C4F5003BD42B /* Sources */,
 				6A47EBCA20C5C4F5003BD42B /* Frameworks */,
 				6A47EBCB20C5C4F5003BD42B /* Resources */,
@@ -199,6 +236,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A47EBE720C5C4F5003BD42B /* Build configuration list for PBXNativeTarget "reesebotUITests" */;
 			buildPhases = (
+				FF9D5C996587F42E0B70F73A /* [CP] Check Pods Manifest.lock */,
 				6A47EBD420C5C4F5003BD42B /* Sources */,
 				6A47EBD520C5C4F5003BD42B /* Frameworks */,
 				6A47EBD620C5C4F5003BD42B /* Resources */,
@@ -284,6 +322,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		688B6D4F3180E0A65960AD50 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-reesebot/Pods-reesebot-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-reesebot/Pods-reesebot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6A47EBED20C5D075003BD42B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
@@ -296,6 +354,60 @@
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "";
+		};
+		89D13E339404C23597301A3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-reesebotTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAFF964E6A7A5E8AEFAABE5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-reesebot-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF9D5C996587F42E0B70F73A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-reesebotUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -477,6 +589,7 @@
 		};
 		6A47EBE220C5C4F5003BD42B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C5BD553A3A7261F849B4471 /* Pods-reesebot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -492,6 +605,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jameshunt.reesebot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -499,6 +613,7 @@
 		};
 		6A47EBE320C5C4F5003BD42B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF273E3AF8A7DFDA5F6F2282 /* Pods-reesebot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -514,6 +629,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jameshunt.reesebot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -521,6 +637,7 @@
 		};
 		6A47EBE520C5C4F5003BD42B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EB2342A626C79CD8A51956C /* Pods-reesebotTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -542,6 +659,7 @@
 		};
 		6A47EBE620C5C4F5003BD42B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C9B8A90BA2B1EF3104A5EFB /* Pods-reesebotTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -563,6 +681,7 @@
 		};
 		6A47EBE820C5C4F5003BD42B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14B6FA63FDCA956602FFD9E4 /* Pods-reesebotUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -583,6 +702,7 @@
 		};
 		6A47EBE920C5C4F5003BD42B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F1C5A51F9912566C1C2A15E /* Pods-reesebotUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

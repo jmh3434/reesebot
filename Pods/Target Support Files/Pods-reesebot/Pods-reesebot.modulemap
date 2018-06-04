@@ -1,0 +1,6 @@
+framework module Pods_reesebot {
+  umbrella header "Pods-reesebot-umbrella.h"
+
+  export *
+  module * { export * }
+}
