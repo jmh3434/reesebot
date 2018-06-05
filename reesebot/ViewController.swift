@@ -14,6 +14,7 @@ class ViewController: JSQMessagesViewController {
     var messages = [JSQMessage]()
     var text = String()
     var result = String()
+    var newText = String()
 
     
     override func viewDidLoad() {
@@ -29,9 +30,9 @@ class ViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-            var data = "this is a data string"
-            var id          = "1234"
-            var name        = "James Hunt"
+        
+            let id          = "1234"
+            let name        = "James Hunt"
             text        = "What's happening this weekend?"
         
         if let message = JSQMessage(senderId: id, displayName: name, text: text)
@@ -42,20 +43,19 @@ class ViewController: JSQMessagesViewController {
             self.finishReceivingMessage()
         }
     
-       
+    
         
+        self.assistantExample { () -> () in
+            self.sendMessage()
+        }
         
-       
-        
-        
-        assistantExample()
         
        
     
         
     }
     
-    func assistantExample() {
+    func assistantExample(handleComplete:@escaping (()->()))  {
         
         // Assistant credentials
         let username = "124663f7-0eb9-467f-9d1d-e1213e949253"
@@ -76,19 +76,35 @@ class ViewController: JSQMessagesViewController {
             let request = MessageRequest(input: input, context: response.context)
             assistant.message(workspaceID: workspace, request: request) { response in
                 print("Response: \(response.output.text.joined())")
+                self.newText = String((response.output.text.joined()))
+                handleComplete()
 
             }
         }
         
-       
-        
-        
-        
-        
-        
-        
     }
     
+    func sendMessage() {
+        let id          = "3434"
+        let name        = "Watson"
+    
+        if let message = JSQMessage(senderId: id, displayName: name, text: newText)
+        {
+        
+            self.messages.append(message)
+            print("the message is",message)
+            self.finishReceivingMessage()
+            collectionView.reloadData()
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
+        
+        cell.textView!.textColor = UIColor.black
+        
+        return cell
+    }
     // messages code
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData!
     {
