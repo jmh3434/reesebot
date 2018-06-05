@@ -15,11 +15,18 @@ class ViewController: JSQMessagesViewController {
     var text = String()
     var result = String()
     var newText = String()
-
+    var messageValue = String()
     
+    
+    
+    
+    private let greenView = UIView()
+
+    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         // messages code
         
@@ -44,9 +51,9 @@ class ViewController: JSQMessagesViewController {
         }
     
     
-        
-        self.assistantExample { () -> () in
-            self.sendMessage()
+        messageValue = "Hello"
+        self.assistantExample(message: "aye") { () -> () in
+            self.addMessage(withId: "3434", name: "Watson", text: self.newText)
         }
         
         
@@ -55,7 +62,9 @@ class ViewController: JSQMessagesViewController {
         
     }
     
-    func assistantExample(handleComplete:@escaping (()->()))  {
+        
+    // watson
+    func assistantExample(message:String, handleComplete:@escaping (()->()))  {
         
         // Assistant credentials
         let username = "124663f7-0eb9-467f-9d1d-e1213e949253"
@@ -72,7 +81,8 @@ class ViewController: JSQMessagesViewController {
             
             // continue assistant
             
-            let input = InputData(text: "What's happening this weekend")
+           // let input = InputData(text: "What's happening this weekend")
+            let input = InputData(text: message)
             let request = MessageRequest(input: input, context: response.context)
             assistant.message(workspaceID: workspace, request: request) { response in
                 print("Response: \(response.output.text.joined())")
@@ -83,26 +93,46 @@ class ViewController: JSQMessagesViewController {
         }
         
     }
-    
-    func sendMessage() {
-        let id          = "3434"
-        let name        = "Watson"
-    
-        if let message = JSQMessage(senderId: id, displayName: name, text: newText)
-        {
-        
-            self.messages.append(message)
-            print("the message is",message)
-            self.finishReceivingMessage()
+
+    func addMessage(withId id: String, name: String, text: String) {
+        if let message = JSQMessage(senderId: id, displayName: name, text: text) {
+            messages.append(message)
             collectionView.reloadData()
         }
     }
+
     
+//    func sendMessage() {
+//        let id          = "3434"
+//        let name        = "Watson"
+//
+//        if let message = JSQMessage(senderId: id, displayName: name, text: newText)
+//        {
+//
+//            self.messages.append(message)
+//            print("the message is",message)
+//            self.finishReceivingMessage()
+//
+//
+//            collectionView.reloadData()
+//        }
+//    }
+    override func textViewDidChange(_ textView: UITextView) {
+        super.textViewDidChange(textView)
+        // If the text is not empty, the user is typing
+        print(textView.text)
+        messageValue = textView.text!
+        
+    }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
+        let message = messages[indexPath.item]
         
-        cell.textView!.textColor = UIColor.black
-        
+        if message.senderId == senderId {
+            cell.textView?.textColor = UIColor.white
+        } else {
+            cell.textView?.textColor = UIColor.black
+        }
         return cell
     }
     // messages code
@@ -148,7 +178,15 @@ class ViewController: JSQMessagesViewController {
         let message = ["sender_id": senderId, "name": senderDisplayName, "text": text]
         
       //  ref.setValue(message)
+        print("sent message")
+        addMessage(withId: "3434", name: "James Hunt", text: messageValue)
+        assistantExample(message: messageValue) {
+            self.addMessage(withId: "3434", name: "Watson", text: self.newText)
+            print("done")
+        }
         
         finishSendingMessage()
     }
+    
 }
+
