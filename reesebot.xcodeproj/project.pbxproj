@@ -18,6 +18,9 @@
 		6A47EBDD20C5C4F5003BD42B /* reesebotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBDC20C5C4F5003BD42B /* reesebotUITests.swift */; };
 		6A7E255B20C5D5230098F6FC /* AssistantV1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A47EBEB20C5D048003BD42B /* AssistantV1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6A7E255C20C5D5820098F6FC /* AssistantV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A47EBEB20C5D048003BD42B /* AssistantV1.framework */; };
+		6AAD51A820C7083900AB746D /* DiscoveryV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAD51A720C7083900AB746D /* DiscoveryV1.framework */; };
+		6AAD51A920C7084200AB746D /* DiscoveryV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAD51A720C7083900AB746D /* DiscoveryV1.framework */; };
+		6AAD51AA20C7084200AB746D /* DiscoveryV1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAD51A720C7083900AB746D /* DiscoveryV1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C33677D5ABC78AFE43EEC58D /* Pods_reesebot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF1FC92CCB8CD9D811D954C /* Pods_reesebot.framework */; };
 		E1FAC3AE48FAF14B8B89929B /* Pods_reesebotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181FC25CF44E64713C5A0A9C /* Pods_reesebotTests.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +49,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6AAD51AA20C7084200AB746D /* DiscoveryV1.framework in Embed Frameworks */,
 				6A7E255B20C5D5230098F6FC /* AssistantV1.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -75,6 +79,7 @@
 		6A47EBDE20C5C4F5003BD42B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A47EBEB20C5D048003BD42B /* AssistantV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssistantV1.framework; path = Carthage/Build/iOS/AssistantV1.framework; sourceTree = "<group>"; };
 		6A815BC420C5DF8D008F7266 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "reesebot/Bridging-Header.h"; sourceTree = "<group>"; };
+		6AAD51A720C7083900AB746D /* DiscoveryV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiscoveryV1.framework; path = Carthage/Build/iOS/DiscoveryV1.framework; sourceTree = "<group>"; };
 		6C9B8A90BA2B1EF3104A5EFB /* Pods-reesebotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reesebotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-reesebotTests/Pods-reesebotTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D424A552874E8FBDC429C30 /* Pods_reesebotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reesebotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5BD553A3A7261F849B4471 /* Pods-reesebot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reesebot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-reesebot/Pods-reesebot.debug.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +91,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AAD51A920C7084200AB746D /* DiscoveryV1.framework in Frameworks */,
+				6AAD51A820C7083900AB746D /* DiscoveryV1.framework in Frameworks */,
 				6A7E255C20C5D5820098F6FC /* AssistantV1.framework in Frameworks */,
 				C33677D5ABC78AFE43EEC58D /* Pods_reesebot.framework in Frameworks */,
 			);
@@ -168,6 +175,7 @@
 		6A47EBEA20C5D048003BD42B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6AAD51A720C7083900AB746D /* DiscoveryV1.framework */,
 				6A47EBEB20C5D048003BD42B /* AssistantV1.framework */,
 				3CF1FC92CCB8CD9D811D954C /* Pods_reesebot.framework */,
 				181FC25CF44E64713C5A0A9C /* Pods_reesebotTests.framework */,
