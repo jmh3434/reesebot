@@ -59,6 +59,7 @@ class ViewController: JSQMessagesViewController {
         }
         
     }
+    
     func discover(){
         let username = "71dc0668-7297-4500-bd89-9e6da3c60643"
         let password = "pjW0skCcw2Yp"
@@ -68,51 +69,72 @@ class ViewController: JSQMessagesViewController {
         let failure = { (error: Error) in print("failure") }
         
         
+        
+//        discovery.queryDocumentsInCollection(
+//            environmentID: "24e532bb-8c78-4f06-ad3f-1e19188d1114",
+//            collectionID: "5086ef4c-255a-40a1-bf4a-f35b49791bbb",
+//            // query: "enriched_text.concepts.text:\"Cloud computing\"",
+//            query: "man",
+//            failure: failure)
+//            withAggregation: aggregation,
+//            return: returnHierarchies,
+//            failure: failWithError)
+//        {
+//            queryResponse in
+//            if let results = queryResponse.results {
+//                for result in results {
+//                    if let entities = result.entities {
+//                        for entity in entities {
+//                            print("entity_new",entity)
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        
     
        
         discovery.query(
             environmentID: "24e532bb-8c78-4f06-ad3f-1e19188d1114",
             collectionID: "5086ef4c-255a-40a1-bf4a-f35b49791bbb",
            // query: "enriched_text.concepts.text:\"Cloud computing\"",
-            query: "fat man",
+            query: "man",
             failure: failure)
         {
-            
-            
-            
             queryResponse in
+            //print("qrHunt",queryResponse.results![(DiscoveryV1])
+            //print("qrd",queryResponse.results?.description)
+            var qrd = queryResponse.results?.description
+            var qrdS =  String(qrd as! String)
+            qrdS.append("jamesyay")
+           // print("qrdS",qrdS)
+           // let qrdS    = "First Last"
+            let arr = qrdS.components(separatedBy: "\"url\": DiscoveryV1.JSON.string(\"")
             
-            print("qr",queryResponse)
+            let beforeUrl    = arr[0]
+            let incUrlAfter = arr[1]
+            print("incUrlAfter",incUrlAfter)
             
             
             
-            
-            
-            
-            
-//            var text = queryResponse.results![0].
-//            var text = queryResponse.ag
-//            print("text",text)
-//            //print("discover_text:",queryResponse)
+//            if let results = queryResponse.results {
+//                for result in results {
+//                            print("result_1",result)
+//                            print("result_id",result.id?.description)
+//                            print("result_cid",result.collectionID?.description)
+//                    if let entities = result.id {
+//                            print("entity_1",entities.description)
 //
-//               // print("hunt_data: ",queryResponse)
-//
-//               // var queryR = String(queryResponse.results)
-//
-//
-//
-//            var stringToSplit = String(text.metadata)
-//
-//           // let fullName    = "First Last"
-//
-//            let stringToSplitArr = stringToSplit.components(separatedBy: "url\": DiscoveryV1.JSON.string(\"")
-//
-//            let beforeUrl    = stringToSplitArr[0]
-//            let afterUrl = stringToSplitArr[1]
-//            print("afterUrl ",afterUrl)
+//                        for entity in entities {
+//                            print("entity_new",entity.description)
+//                        }
+//                    }
+//                }
+//            }
 
-            
-            
+
+
+
         }
     }
     
