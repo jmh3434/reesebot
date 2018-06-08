@@ -17,6 +17,7 @@ class ViewController: JSQMessagesViewController {
     var result = String()
     var newText = String()
     var messageValue = String()
+    var machineLearning = String()
     
     
     
@@ -115,6 +116,25 @@ class ViewController: JSQMessagesViewController {
             let incUrlAfter = arr[1]
             print("incUrlAfter",incUrlAfter)
             
+            let incUrlManip = incUrlAfter.components(separatedBy: "\")")
+            
+            let manipUrl    = incUrlManip[0]
+            let manipUrlAfter = incUrlManip[1]
+            
+            self.machineLearning = manipUrl
+            
+            
+            
+            print("manip",manipUrl,"Mackenzie")
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             
 //            if let results = queryResponse.results {
@@ -169,7 +189,13 @@ class ViewController: JSQMessagesViewController {
                 self.newText = String((response.output.text.joined()))
                 
                 if let message = JSQMessage(senderId: "3434", displayName: "Watson", text: self.newText) {
+                    
                     self.messages.append(message)
+                    if self.machineLearning != nil {
+                        self.addMessage(withId: "3434", name: "Watson", text: "\(self.machineLearning)")
+                    }
+                        
+                
                     
                 }
                 self.finishReceivingMessage()
