@@ -17,7 +17,7 @@ class ViewController: JSQMessagesViewController {
     var result = String()
     var newText = String()
     var messageValue = String()
-    var machineLearning = String()
+    
     var userText = String()
     
     override func viewDidLoad() {
@@ -40,9 +40,7 @@ class ViewController: JSQMessagesViewController {
         
         messageValue = "What's your name?"
         
-        self.assistantExample(message: "What's your name?") { () -> () in
-           // self.addMessage(withId: "3434", name: "Watson", text: self.newText)
-        }
+       
         
     }
     
@@ -69,45 +67,66 @@ class ViewController: JSQMessagesViewController {
             queryResponse in
             //print("qrHunt",queryResponse.results![(DiscoveryV1])
             //print("qrd",queryResponse.results?.description)
+        
             var qrd = queryResponse.results?.description
             var qrdS =  String(qrd as! String)
-            qrdS.append("jamesyay")
-           // print("qrdS",qrdS)
-           // let qrdS    = "First Last"
+            qrdS.append("no data")
+           
+            
+            if (qrdS.components(separatedBy: "\"url\": DiscoveryV1.JSON.string(\"")) != nil {
             let arr = qrdS.components(separatedBy: "\"url\": DiscoveryV1.JSON.string(\"")
             
-            let beforeUrl    = arr[0]
-            let incUrlAfter = arr[1]
-            print("incUrlAfter",incUrlAfter)
-            
-            let incUrlManip = incUrlAfter.components(separatedBy: "\")")
-            
-            let manipUrl    = incUrlManip[0]
-            let manipUrlAfter = incUrlManip[1]
-            
-            let newString = manipUrl
-            //
-            DispatchQueue.main.async {
-            if let message = JSQMessage(senderId: "3434", displayName: "Watson", text: newString) {
+                let beforeUrl:String? = arr[0]
+                print("arr)",arr[0])
+                var incUrlAfter:String?
+                if beforeUrl != "[]no data" {
+                    incUrlAfter = arr[1]
+                }
                 
-                    self.addMessage(withId: "3434", name: "Watson", text: "\(newString)")
+                print("beforeURL looks like: ",beforeUrl)
                 
-            }
-            self.finishReceivingMessage()
-            self.collectionView.reloadData()
+                
+                
             
-            //
+                if let beforeUrl1 = beforeUrl {
+                    if let incUrlAfter1 = incUrlAfter {
+                        print("incUrlAfter1",incUrlAfter1)
+                        
+                        let incUrlManip = incUrlAfter1.components(separatedBy: "\")")
+                        
+                        let manipUrl    = incUrlManip[0]
+                        let manipUrlAfter = incUrlManip[1]
+                        
+                        let newString = manipUrl
+                        //
+                        DispatchQueue.main.async {
+                            if let message = JSQMessage(senderId: "3434", displayName: "Watson", text: newString) {
+                                
+                                self.addMessage(withId: "3434", name: "Watson", text: "\(newString)")
+                                
+                            }
+                            self.finishReceivingMessage()
+                            self.collectionView.reloadData()
+                            
+                            //
+                            
+                        }
+                        print("manip",manipUrl,"Mackenzie")
+                        
+                    }
+                    
+                }
+           
             
-            }
-            print("manip",manipUrl,"Mackenzie")
 
 
+        }
         }
     }
     
     
     // watson
-    func assistantExample(message:String, handleComplete:@escaping (()->()))  {
+    func assistantExample(message:String)  {
         
         // Assistant credentials
         let username = "124663f7-0eb9-467f-9d1d-e1213e949253"
@@ -133,22 +152,25 @@ class ViewController: JSQMessagesViewController {
                 
                 
                 
-                self.newText = String((response.output.text.joined()))
+                let assistantText = String((response.output.text.joined()))
+                DispatchQueue.main.async {
                 
-                if let message = JSQMessage(senderId: "3434", displayName: "Watson", text: self.newText) {
+                if let message = JSQMessage(senderId: "3434", displayName: "Watson", text: assistantText) {
                     
                     self.messages.append(message)
-                    if self.machineLearning != nil {
-                        self.addMessage(withId: "3434", name: "Watson", text: "\(self.machineLearning)")
-                    }
+                    
+                        self.addMessage(withId: "3434", name: "Watson", text: "\(assistantText)")
+                        print("assistant helped")
+                    
                         
                 
                     
                 }
                 self.finishReceivingMessage()
                 self.collectionView.reloadData()
+                }
                 
-                handleComplete()
+                
 
             }
         }
@@ -222,12 +244,13 @@ class ViewController: JSQMessagesViewController {
         
         
         addMessage(withId: "1234", name: "James Hunt", text: messageValue)
-        assistantExample(message: messageValue) {
-            //self.addMessage(withId: "3434", name: "Watson", text: self.newText)
-            print("done")
-            self.userText = self.messageValue
-            self.discover()
-        }
+        assistantExample(message: messageValue)
+        self.userText = self.messageValue
+        self.discover()
+        finishSendingMessage()
+        
+        
+        
         
     }
     
