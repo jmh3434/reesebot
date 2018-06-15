@@ -17,30 +17,23 @@ class ViewController: JSQMessagesViewController {
     var result = String()
     var newText = String()
     var messageValue = String()
+    var discoveryAssisted = Bool()
     
     var userText = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        
-        
-        
-        // messages code
-        
+        assistantExample(message: "What's your name?")
         senderId = "1234"
         senderDisplayName = "James Hunt"
-        
         
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-        addMessage(withId: "1234", name: "James Hunt", text: "What's your name?")
+        //addMessage(withId: "1234", name: "James Hunt", text: "What's your name?")
         
         messageValue = "What's your name?"
-        
-       
         
     }
     
@@ -52,28 +45,20 @@ class ViewController: JSQMessagesViewController {
         
         let failure = { (error: Error) in print("failure") }
         
-    
-        
-    
-       
         discovery.query(
             environmentID: "24e532bb-8c78-4f06-ad3f-1e19188d1114",
             collectionID: "5086ef4c-255a-40a1-bf4a-f35b49791bbb",
-            //query: "enriched_text.concepts.text:\"Kevin Durant\"",
-            //query: "kevin durant",
             query: userText,
             failure: failure)
         {
             queryResponse in
-            //print("qrHunt",queryResponse.results![(DiscoveryV1])
-            //print("qrd",queryResponse.results?.description)
-        
-            var qrd = queryResponse.results?.description
-            var qrdS =  String(qrd as! String)
+            
+            let qrd = queryResponse.results?.description
+            var qrdS =  qrd!
             qrdS.append("no data")
            
             
-            if (qrdS.components(separatedBy: "\"url\": DiscoveryV1.JSON.string(\"")) != nil {
+            
             let arr = qrdS.components(separatedBy: "\"url\": DiscoveryV1.JSON.string(\"")
             
                 let beforeUrl:String? = arr[0]
@@ -81,46 +66,30 @@ class ViewController: JSQMessagesViewController {
                 var incUrlAfter:String?
                 if beforeUrl != "[]no data" {
                     incUrlAfter = arr[1]
-                }
+                }else{
+                self.discoveryAssisted = false
                 
-                print("beforeURL looks like: ",beforeUrl)
-                
-                
-                
+            }
+       
             
-                if let beforeUrl1 = beforeUrl {
                     if let incUrlAfter1 = incUrlAfter {
                         print("incUrlAfter1",incUrlAfter1)
                         
                         let incUrlManip = incUrlAfter1.components(separatedBy: "\")")
-                        
                         let manipUrl    = incUrlManip[0]
-                        let manipUrlAfter = incUrlManip[1]
-                        
                         let newString = manipUrl
-                        //
+                
                         DispatchQueue.main.async {
-                            if let message = JSQMessage(senderId: "3434", displayName: "Watson", text: newString) {
-                                
-                                self.addMessage(withId: "3434", name: "Watson", text: "\(newString)")
-                                
-                            }
+                            self.addMessage(withId: "3434", name: "Watson", text: "I found this article to help: \(newString)")
+                            self.discoveryAssisted = true
                             self.finishReceivingMessage()
                             self.collectionView.reloadData()
                             
-                            //
-                            
                         }
-                        print("manip",manipUrl,"Mackenzie")
+                        print("manip",manipUrl)
                         
                     }
-                    
-                }
-           
             
-
-
-        }
         }
     }
     
@@ -147,31 +116,39 @@ class ViewController: JSQMessagesViewController {
            // let input = InputData(text: "What's happening this weekend")
             let input = InputData(text: message)
             let request = MessageRequest(input: input, context: response.context)
-            assistant.message(workspaceID: workspace, request: request) { response in
-                print("Response: \(response.output.text.joined())")
-                
-                
-                
-                let assistantText = String((response.output.text.joined()))
-                DispatchQueue.main.async {
-                
-                if let message = JSQMessage(senderId: "3434", displayName: "Watson", text: assistantText) {
+            if response.output.text.joined() != "Sorry, I don't know about that one!" {
+                assistant.message(workspaceID: workspace, request: request) { response in
                     
-                    self.messages.append(message)
+                    print("Response: \(response.output.text.joined())")
                     
-                        self.addMessage(withId: "3434", name: "Watson", text: "\(assistantText)")
-                        print("assistant helped")
+                    if response.output.text.joined() != "Come again?" && response.output.text.joined() != "I am not sure." {
                     
+                    
+                    
+                    let assistantText = String((response.output.text.joined()))
+                    DispatchQueue.main.async {
                         
-                
+                        
+                            
+                        if !self.discoveryAssisted {
+                            self.addMessage(withId: "3434", name: "Watson", text: "Assistant: \(assistantText)")
+                            
+                            print("assistant helped")
+                            
+                            self.finishReceivingMessage()
+                            self.collectionView.reloadData()
+                            
+                        }
+                        
+                       
+                    }
+                    
+                    
                     
                 }
-                self.finishReceivingMessage()
-                self.collectionView.reloadData()
-                }
-                
-                
 
+                
+            }
             }
         }
         
@@ -244,9 +221,10 @@ class ViewController: JSQMessagesViewController {
         
         
         addMessage(withId: "1234", name: "James Hunt", text: messageValue)
-        assistantExample(message: messageValue)
+        
         self.userText = self.messageValue
         self.discover()
+        assistantExample(message: messageValue)
         finishSendingMessage()
         
         
