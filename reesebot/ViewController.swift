@@ -18,35 +18,19 @@ class ViewController: JSQMessagesViewController {
     var newText = String()
     var messageValue = String()
     var machineLearning = String()
+    var userText = String()
     
-    
-    
-    
-    private let greenView = UIView()
-
-    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
-        return CGRect(x: x, y: y, width: width, height: height)
-    }
-    func addViewOnTop() {
-        let selectableView = UIView(frame: CGRect(x: 0, y: 60, width: self.view.bounds.width, height: 40))
-        
-        let randomViewLabel = UILabel(frame: CGRect(x: 20, y: -27, width: 100, height: 16))
-        randomViewLabel.text = "Reesebot"
-        selectableView.addSubview(randomViewLabel)
-        view.addSubview(selectableView)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
        
         
         
-        addViewOnTop()
-        discover()
         
         // messages code
         
         senderId = "1234"
         senderDisplayName = "James Hunt"
+        
         
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
@@ -55,6 +39,7 @@ class ViewController: JSQMessagesViewController {
         addMessage(withId: "1234", name: "James Hunt", text: "What's your name?")
         
         messageValue = "What's your name?"
+        
         self.assistantExample(message: "What's your name?") { () -> () in
            // self.addMessage(withId: "3434", name: "Watson", text: self.newText)
         }
@@ -69,37 +54,16 @@ class ViewController: JSQMessagesViewController {
         
         let failure = { (error: Error) in print("failure") }
         
-        
-        
-//        discovery.queryDocumentsInCollection(
-//            environmentID: "24e532bb-8c78-4f06-ad3f-1e19188d1114",
-//            collectionID: "5086ef4c-255a-40a1-bf4a-f35b49791bbb",
-//            // query: "enriched_text.concepts.text:\"Cloud computing\"",
-//            query: "man",
-//            failure: failure)
-//            withAggregation: aggregation,
-//            return: returnHierarchies,
-//            failure: failWithError)
-//        {
-//            queryResponse in
-//            if let results = queryResponse.results {
-//                for result in results {
-//                    if let entities = result.entities {
-//                        for entity in entities {
-//                            print("entity_new",entity)
-//                        }
-//                    }
-//                }
-//            }
-//        }
+    
         
     
        
         discovery.query(
             environmentID: "24e532bb-8c78-4f06-ad3f-1e19188d1114",
             collectionID: "5086ef4c-255a-40a1-bf4a-f35b49791bbb",
-           // query: "enriched_text.concepts.text:\"Cloud computing\"",
-            query: "man",
+            //query: "enriched_text.concepts.text:\"Kevin Durant\"",
+            //query: "kevin durant",
+            query: userText,
             failure: failure)
         {
             queryResponse in
@@ -121,38 +85,21 @@ class ViewController: JSQMessagesViewController {
             let manipUrl    = incUrlManip[0]
             let manipUrlAfter = incUrlManip[1]
             
-            self.machineLearning = manipUrl
+            let newString = manipUrl
+            //
+            DispatchQueue.main.async {
+            if let message = JSQMessage(senderId: "3434", displayName: "Watson", text: newString) {
+                
+                    self.addMessage(withId: "3434", name: "Watson", text: "\(newString)")
+                
+            }
+            self.finishReceivingMessage()
+            self.collectionView.reloadData()
             
+            //
             
-            
+            }
             print("manip",manipUrl,"Mackenzie")
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-//            if let results = queryResponse.results {
-//                for result in results {
-//                            print("result_1",result)
-//                            print("result_id",result.id?.description)
-//                            print("result_cid",result.collectionID?.description)
-//                    if let entities = result.id {
-//                            print("entity_1",entities.description)
-//
-//                        for entity in entities {
-//                            print("entity_new",entity.description)
-//                        }
-//                    }
-//                }
-//            }
-
-
 
 
         }
@@ -272,10 +219,14 @@ class ViewController: JSQMessagesViewController {
     }
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!)
     {
+        
+        
         addMessage(withId: "1234", name: "James Hunt", text: messageValue)
         assistantExample(message: messageValue) {
             //self.addMessage(withId: "3434", name: "Watson", text: self.newText)
             print("done")
+            self.userText = self.messageValue
+            self.discover()
         }
         
     }
