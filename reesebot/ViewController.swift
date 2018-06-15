@@ -17,7 +17,6 @@ class ViewController: JSQMessagesViewController {
     var result = String()
     var newText = String()
     var messageValue = String()
-    var discoveryAssisted = Bool()
     
     var userText = String()
     
@@ -66,10 +65,7 @@ class ViewController: JSQMessagesViewController {
                 var incUrlAfter:String?
                 if beforeUrl != "[]no data" {
                     incUrlAfter = arr[1]
-                }else{
-                self.discoveryAssisted = false
-                
-            }
+                }
        
             
                     if let incUrlAfter1 = incUrlAfter {
@@ -81,7 +77,6 @@ class ViewController: JSQMessagesViewController {
                 
                         DispatchQueue.main.async {
                             self.addMessage(withId: "3434", name: "Watson", text: "I found this article to help: \(newString)")
-                            self.discoveryAssisted = true
                             self.finishReceivingMessage()
                             self.collectionView.reloadData()
                             
@@ -89,7 +84,6 @@ class ViewController: JSQMessagesViewController {
                         print("manip",manipUrl)
                         
                     }
-            
         }
     }
     
@@ -130,17 +124,21 @@ class ViewController: JSQMessagesViewController {
                         
                         
                             
-                        if !self.discoveryAssisted {
-                            self.addMessage(withId: "3434", name: "Watson", text: "Assistant: \(assistantText)")
-                            
-                            print("assistant helped")
-                            
-                            self.finishReceivingMessage()
-                            self.collectionView.reloadData()
-                            
-                        }
                         
-                       
+                        
+                        self.addMessage(withId: "3434", name: "Watson", text: "Assistant: \(assistantText)")
+                                
+                                print("assistant helped")
+                                
+                        
+                            
+                            
+                            
+                            
+                            
+                        
+                        self.finishReceivingMessage()
+                        self.collectionView.reloadData()
                     }
                     
                     
@@ -221,10 +219,9 @@ class ViewController: JSQMessagesViewController {
         
         
         addMessage(withId: "1234", name: "James Hunt", text: messageValue)
-        
+        assistantExample(message: messageValue)
         self.userText = self.messageValue
         self.discover()
-        assistantExample(message: messageValue)
         finishSendingMessage()
         
         
