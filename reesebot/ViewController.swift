@@ -22,7 +22,8 @@ class ViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        assistantExample(message: "What's your name?")
+        
+        
         senderId = "1234"
         senderDisplayName = "James Hunt"
         
@@ -30,9 +31,10 @@ class ViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-        //addMessage(withId: "1234", name: "James Hunt", text: "What's your name?")
+        self.addMessage(withId: "3434", name: "Watson", text: "I'm Port City Pulse. What can I help you with?")
         
-        messageValue = "What's your name?"
+        
+        //messageValue = "What's your name?"
         
     }
     
@@ -45,13 +47,14 @@ class ViewController: JSQMessagesViewController {
         let failure = { (error: Error) in print("failure") }
         
         discovery.query(
-            environmentID: "24e532bb-8c78-4f06-ad3f-1e19188d1114",
-            collectionID: "5086ef4c-255a-40a1-bf4a-f35b49791bbb",
+            environmentID: "24e532bb-8c78-4f06-ad3f-1e19188d1114",//"24e532bb-8c78-4f06-ad3f-1e19188d1114",//
+            collectionID: "5086ef4c-255a-40a1-bf4a-f35b49791bbb",//"aecc486d-0c37-42bb-a959-770a517cee4c",//
             query: userText,
             failure: failure)
         {
             queryResponse in
             
+            print("result is:", queryResponse.results!)
             let qrd = queryResponse.results?.description
             var qrdS =  qrd!
             qrdS.append("no data")
@@ -59,12 +62,21 @@ class ViewController: JSQMessagesViewController {
             
             
             let arr = qrdS.components(separatedBy: "\"url\": DiscoveryV1.JSON.string(\"")
+            let arr3 = qrdS.components(separatedBy: "\"relevance\": DiscoveryV1.JSON.double(")
+            
+            
             
                 let beforeUrl:String? = arr[0]
                 print("arr)",arr[0])
                 var incUrlAfter:String?
                 if beforeUrl != "[]no data" {
                     incUrlAfter = arr[1]
+                }
+                let beforeUrl3:String? = arr3[0]
+                print("arr)",arr3[0])
+                var incUrlAfter3:String?
+                if beforeUrl3 != "[]no data" {
+                    incUrlAfter3 = arr3[1]
                 }
        
             
@@ -84,6 +96,22 @@ class ViewController: JSQMessagesViewController {
                         print("manip",manipUrl)
                         
                     }
+            if let incUrlAfter3 = incUrlAfter3 {
+                print("incUrlAfter3",incUrlAfter3)
+                
+                let incUrlManip3 = incUrlAfter3.components(separatedBy: "), \"type\"")
+                let manipUrl3    = incUrlManip3[0]
+                let newString3 = manipUrl3
+                
+                DispatchQueue.main.async {
+                    self.addMessage(withId: "3434", name: "Watson", text: "My confidence is: \(newString3)")
+                    self.finishReceivingMessage()
+                    self.collectionView.reloadData()
+                    
+                }
+                print("manip",manipUrl3)
+                
+            }
         }
     }
     
