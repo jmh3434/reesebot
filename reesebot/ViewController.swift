@@ -36,6 +36,49 @@ class ViewController: JSQMessagesViewController {
         
         //messageValue = "What's your name?"
         
+        let button = UIButton(frame: CGRect(x: 335, y: 40, width: 20, height: 20))
+        button.setTitle("Share", for: .normal)
+        if let image  = UIImage(named: "share.png") {
+            button.setImage(image, for: UIControlState.normal)
+        }
+        button.backgroundColor = .white
+        
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
+        self.view.addSubview(button)
+        self.view.bringSubview(toFront: button)
+        
+        
+    }
+    @objc func buttonTapped(sender : UIButton) {
+        print("share")
+        let firstActivityItem = "Checkout Port City Pulse"
+        let secondActivityItem : NSURL = NSURL(string: "www.unc.edu")!
+        // If you want to put an image
+        let image : UIImage = UIImage(named: "unc.png")!
+        let activityViewController : UIActivityViewController = UIActivityViewController(
+            activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
+        
+        // This lines is for the popover you need to show in iPad
+        activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
+        
+        // This line remove the arrow of the popover to show in iPad
+        
+        activityViewController.popoverPresentationController?.sourceRect = CGRect(x: 150, y: 150, width: 0, height: 0)
+        
+        // Anything you want to exclude
+        activityViewController.excludedActivityTypes = [
+            UIActivityType.postToWeibo,
+            UIActivityType.print,
+            UIActivityType.assignToContact,
+            UIActivityType.saveToCameraRoll,
+            UIActivityType.addToReadingList,
+            UIActivityType.postToFlickr,
+            UIActivityType.postToVimeo,
+            UIActivityType.postToTencentWeibo
+        ]
+        
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     func discover(){

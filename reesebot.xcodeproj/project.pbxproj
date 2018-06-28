@@ -18,6 +18,8 @@
 		6A47EBDD20C5C4F5003BD42B /* reesebotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBDC20C5C4F5003BD42B /* reesebotUITests.swift */; };
 		6A7E255B20C5D5230098F6FC /* AssistantV1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A47EBEB20C5D048003BD42B /* AssistantV1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6A7E255C20C5D5820098F6FC /* AssistantV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A47EBEB20C5D048003BD42B /* AssistantV1.framework */; };
+		6A9062CF20E57E0C00306BD6 /* unc.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9062CE20E57E0C00306BD6 /* unc.png */; };
+		6A9062D120E57FC200306BD6 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9062D020E57FC200306BD6 /* share.png */; };
 		6AAD51A820C7083900AB746D /* DiscoveryV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAD51A720C7083900AB746D /* DiscoveryV1.framework */; };
 		6AAD51A920C7084200AB746D /* DiscoveryV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAD51A720C7083900AB746D /* DiscoveryV1.framework */; };
 		6AAD51AA20C7084200AB746D /* DiscoveryV1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAD51A720C7083900AB746D /* DiscoveryV1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -79,6 +81,8 @@
 		6A47EBDE20C5C4F5003BD42B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A47EBEB20C5D048003BD42B /* AssistantV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssistantV1.framework; path = Carthage/Build/iOS/AssistantV1.framework; sourceTree = "<group>"; };
 		6A815BC420C5DF8D008F7266 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "reesebot/Bridging-Header.h"; sourceTree = "<group>"; };
+		6A9062CE20E57E0C00306BD6 /* unc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unc.png; sourceTree = "<group>"; };
+		6A9062D020E57FC200306BD6 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		6AAD51A720C7083900AB746D /* DiscoveryV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiscoveryV1.framework; path = Carthage/Build/iOS/DiscoveryV1.framework; sourceTree = "<group>"; };
 		6C9B8A90BA2B1EF3104A5EFB /* Pods-reesebotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reesebotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-reesebotTests/Pods-reesebotTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D424A552874E8FBDC429C30 /* Pods_reesebotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reesebotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +154,8 @@
 				6A47EBC520C5C4F5003BD42B /* LaunchScreen.storyboard */,
 				6A47EBC820C5C4F5003BD42B /* Info.plist */,
 				6A47EBC020C5C4F3003BD42B /* reesebot.xcdatamodeld */,
+				6A9062CE20E57E0C00306BD6 /* unc.png */,
+				6A9062D020E57FC200306BD6 /* share.png */,
 			);
 			path = reesebot;
 			sourceTree = "<group>";
@@ -307,7 +313,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A9062CF20E57E0C00306BD6 /* unc.png in Resources */,
 				6A47EBC720C5C4F5003BD42B /* LaunchScreen.storyboard in Resources */,
+				6A9062D120E57FC200306BD6 /* share.png in Resources */,
 				6A47EBC420C5C4F5003BD42B /* Assets.xcassets in Resources */,
 				6A47EBBF20C5C4F3003BD42B /* Main.storyboard in Resources */,
 			);
