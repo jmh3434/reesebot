@@ -16,16 +16,24 @@
 
 import Foundation
 
-/** The general concepts referenced or alluded to in the specified content. */
+/**
+ The general concepts referenced or alluded to in the specified content.
+ */
 public struct ConceptsResult: Decodable {
 
-    /// Name of the concept.
+    /**
+     Name of the concept.
+     */
     public var text: String?
 
-    /// Relevance score between 0 and 1. Higher scores indicate greater relevance.
+    /**
+     Relevance score between 0 and 1. Higher scores indicate greater relevance.
+     */
     public var relevance: Double?
 
-    /// Link to the corresponding DBpedia resource.
+    /**
+     Link to the corresponding DBpedia resource.
+     */
     public var dbpediaResource: String?
 
     // Map each property name to the key that shall be used for encoding/decoding.

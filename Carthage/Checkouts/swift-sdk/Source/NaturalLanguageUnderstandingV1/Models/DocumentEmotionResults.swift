@@ -16,10 +16,14 @@
 
 import Foundation
 
-/** An object containing the emotion results of a document. */
+/**
+ An object containing the emotion results of a document.
+ */
 public struct DocumentEmotionResults: Decodable {
 
-    /// An object containing the emotion results for the document.
+    /**
+     An object containing the emotion results for the document.
+     */
     public var emotion: EmotionScores?
 
     // Map each property name to the key that shall be used for encoding/decoding.

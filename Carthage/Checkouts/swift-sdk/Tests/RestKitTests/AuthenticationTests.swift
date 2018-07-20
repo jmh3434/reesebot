@@ -14,7 +14,7 @@
  * limitations under the License.
  **/
 
-// swiftlint:disable function_body_length force_try force_unwrapping superfluous_disable_command
+// swiftlint:disable function_body_length force_try force_unwrapping file_length
 
 import XCTest
 
@@ -30,10 +30,17 @@ class AuthenticationTests: XCTestCase {
         ("testIAMAuthentication", testIAMAuthentication),
     ]
 
+    internal static func errorResponseDecoder(data: Data, response: HTTPURLResponse) -> Error {
+        let genericMessage = HTTPURLResponse.localizedString(forStatusCode: response.statusCode)
+        return RestError.failure(response.statusCode, genericMessage)
+    }
+
     var request = RestRequest(
+        session: URLSession(configuration: URLSessionConfiguration.default),
+        authMethod: NoAuthentication(),
+        errorResponseDecoder: errorResponseDecoder,
         method: "GET",
         url: "http://www.example.com",
-        authMethod: NoAuthentication(),
         headerParameters: ["x-custom-header": "value"],
         queryItems: [URLQueryItem(name: "name", value: "value")],
         messageBody: "hello-world".data(using: .utf8)

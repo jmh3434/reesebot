@@ -17,9 +17,11 @@
 import Foundation
 
 /** ToneChatInput. */
-public struct ToneChatInput: Encodable {
+internal struct ToneChatInput: Encodable {
 
-    /// An array of `Utterance` objects that provides the input content that the service is to analyze.
+    /**
+     An array of `Utterance` objects that provides the input content that the service is to analyze.
+     */
     public var utterances: [Utterance]
 
     // Map each property name to the key that shall be used for encoding/decoding.
@@ -30,11 +32,15 @@ public struct ToneChatInput: Encodable {
     /**
      Initialize a `ToneChatInput` with member variables.
 
-     - parameter utterances: An array of `Utterance` objects that provides the input content that the service is to analyze.
+     - parameter utterances: An array of `Utterance` objects that provides the input content that the service is to
+       analyze.
 
      - returns: An initialized `ToneChatInput`.
     */
-    public init(utterances: [Utterance]) {
+    public init(
+        utterances: [Utterance]
+    )
+    {
         self.utterances = utterances
     }
 

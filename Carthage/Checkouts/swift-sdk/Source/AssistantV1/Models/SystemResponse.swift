@@ -16,7 +16,9 @@
 
 import Foundation
 
-/** For internal use only. */
+/**
+ For internal use only.
+ */
 public struct SystemResponse: Codable {
 
     /// Additional properties associated with this model.
@@ -27,7 +29,10 @@ public struct SystemResponse: Codable {
 
      - returns: An initialized `SystemResponse`.
     */
-    public init(additionalProperties: [String: JSON] = [:]) {
+    public init(
+        additionalProperties: [String: JSON] = [:]
+    )
+    {
         self.additionalProperties = additionalProperties
     }
 

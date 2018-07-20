@@ -16,7 +16,9 @@
 
 import Foundation
 
-/** The Authors, Publication Date, and Title of the document. Supports URL and HTML input types. */
+/**
+ The Authors, Publication Date, and Title of the document. Supports URL and HTML input types.
+ */
 public struct MetadataOptions: Encodable {
 
     /// Additional properties associated with this model.
@@ -27,7 +29,10 @@ public struct MetadataOptions: Encodable {
 
      - returns: An initialized `MetadataOptions`.
     */
-    public init(additionalProperties: [String: JSON] = [:]) {
+    public init(
+        additionalProperties: [String: JSON] = [:]
+    )
+    {
         self.additionalProperties = additionalProperties
     }
 

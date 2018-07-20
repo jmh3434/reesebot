@@ -16,7 +16,9 @@
 
 import Foundation
 
-/** The hierarchical 5-level taxonomy the content is categorized into. */
+/**
+ The hierarchical 5-level taxonomy the content is categorized into.
+ */
 public struct CategoriesOptions: Encodable {
 
     /// Additional properties associated with this model.
@@ -27,7 +29,10 @@ public struct CategoriesOptions: Encodable {
 
      - returns: An initialized `CategoriesOptions`.
     */
-    public init(additionalProperties: [String: JSON] = [:]) {
+    public init(
+        additionalProperties: [String: JSON] = [:]
+    )
+    {
         self.additionalProperties = additionalProperties
     }
 

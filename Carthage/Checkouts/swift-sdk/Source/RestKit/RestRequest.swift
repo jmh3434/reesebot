@@ -22,7 +22,7 @@ internal struct RestRequest {
 
     internal static let userAgent: String = {
         let sdk = "watson-apis-swift-sdk"
-        let sdkVersion = "0.27.0"
+        let sdkVersion = "0.29.0"
 
         let operatingSystem: String = {
             #if os(iOS)
@@ -40,36 +40,37 @@ internal struct RestRequest {
             #endif
         }()
         let operatingSystemVersion: String = {
+            // swiftlint:disable:next identifier_name
             let os = ProcessInfo.processInfo.operatingSystemVersion
             return "\(os.majorVersion).\(os.minorVersion).\(os.patchVersion)"
         }()
         return "\(sdk)/\(sdkVersion) \(operatingSystem)/\(operatingSystemVersion)"
     }()
 
+    private let session: URLSession
+    internal var authMethod: AuthenticationMethod
+    internal var errorResponseDecoder: ((Data, HTTPURLResponse) -> Error)
     internal var method: String
     internal var url: String
-    internal var authMethod: AuthenticationMethod
     internal var headerParameters: [String: String]
     internal var queryItems: [URLQueryItem]
     internal var messageBody: Data?
-    private let session = URLSession(configuration: URLSessionConfiguration.default)
 
     internal init(
+        session: URLSession,
+        authMethod: AuthenticationMethod,
+        errorResponseDecoder: @escaping ((Data, HTTPURLResponse) -> Error),
         method: String,
         url: String,
-        authMethod: AuthenticationMethod,
         headerParameters: [String: String],
-        acceptType: String? = nil,
-        contentType: String? = nil,
         queryItems: [URLQueryItem]? = nil,
         messageBody: Data? = nil)
     {
-        var headerParameters = headerParameters
-        if let acceptType = acceptType { headerParameters["Accept"] = acceptType }
-        if let contentType = contentType { headerParameters["Content-Type"] = contentType }
+        self.session = session
+        self.authMethod = authMethod
+        self.errorResponseDecoder = errorResponseDecoder
         self.method = method
         self.url = url
-        self.authMethod = authMethod
         self.headerParameters = headerParameters
         self.queryItems = queryItems ?? []
         self.messageBody = messageBody
@@ -96,11 +97,9 @@ extension RestRequest {
     /**
      Execute this request. (This is the main response function and is called by many of the functions below.)
 
-     - parseServiceError: A function that can parse service-specific errors from the raw data response.
      - completionHandler: The completion handler to call when the request is complete.
      */
     internal func response(
-        parseServiceError: ((HTTPURLResponse?, Data?) -> Error?)? = nil,
         completionHandler: @escaping (Data?, HTTPURLResponse?, Error?) -> Void)
     {
         // add authentication credentials to the request
@@ -130,7 +129,8 @@ extension RestRequest {
 
                 // ensure the status code is successful
                 guard (200..<300).contains(response.statusCode) else {
-                    if let serviceError = parseServiceError?(response, data) {
+                    if let data = data {
+                        let serviceError = self.errorResponseDecoder(data, response)
                         completionHandler(data, response, serviceError)
                     } else {
                         let genericMessage = HTTPURLResponse.localizedString(forStatusCode: response.statusCode)
@@ -152,15 +152,13 @@ extension RestRequest {
     /**
      Execute this request and process the response body as raw data.
 
-     - responseToError: A function that can parse service-specific errors from the raw data response.
      - completionHandler: The completion handler to call when the request is complete.
      */
     internal func responseData(
-        responseToError: ((HTTPURLResponse?, Data?) -> Error?)? = nil,
         completionHandler: @escaping (RestResponse<Data>) -> Void)
     {
         // execute the request
-        response(parseServiceError: responseToError) { data, response, error in
+        response { data, response, error in
 
             // ensure there is no underlying error
             guard error == nil else {
@@ -189,76 +187,13 @@ extension RestRequest {
     /**
      Execute this request and process the response body as a JSON object.
 
-     - responseToError: A function that can parse service-specific errors from the raw data response.
-     - path: The path at which to decode the JSON object.
-     - completionHandler: The completion handler to call when the request is complete.
-     */
-    internal func responseObject<T: JSONDecodable>(
-        responseToError: ((HTTPURLResponse?, Data?) -> Error?)? = nil,
-        path: [JSONPathType]? = nil,
-        completionHandler: @escaping (RestResponse<T>) -> Void)
-    {
-        // execute the request
-        response(parseServiceError: responseToError) { data, response, error in
-
-            // ensure there is no underlying error
-            guard error == nil else {
-                // swiftlint:disable:next force_unwrapping
-                let result = RestResult<T>.failure(error!)
-                let dataResponse = RestResponse(response: response, data: data, result: result)
-                completionHandler(dataResponse)
-                return
-            }
-
-            // ensure there is data to parse
-            guard let data = data else {
-                let result = RestResult<T>.failure(RestError.noData)
-                let dataResponse = RestResponse(response: response, data: nil, result: result)
-                completionHandler(dataResponse)
-                return
-            }
-
-            // parse json object
-            let result: RestResult<T>
-            do {
-                let json = try JSONWrapper(data: data)
-                let object: T
-                if let path = path {
-                    switch path.count {
-                    case 0: object = try json.decode()
-                    case 1: object = try json.decode(at: path[0])
-                    case 2: object = try json.decode(at: path[0], path[1])
-                    case 3: object = try json.decode(at: path[0], path[1], path[2])
-                    case 4: object = try json.decode(at: path[0], path[1], path[2], path[3])
-                    case 5: object = try json.decode(at: path[0], path[1], path[2], path[3], path[4])
-                    default: throw JSONWrapper.Error.keyNotFound(key: "ExhaustedVariadicParameterEncoding")
-                    }
-                } else {
-                    object = try json.decode()
-                }
-                result = .success(object)
-            } catch {
-                result = .failure(error)
-            }
-
-            // execute completion handler
-            let dataResponse = RestResponse(response: response, data: data, result: result)
-            completionHandler(dataResponse)
-        }
-    }
-
-    /**
-     Execute this request and process the response body as a decodable value.
-
-     - responseToError: A function that can parse service-specific errors from the raw data response.
      - completionHandler: The completion handler to call when the request is complete.
      */
     internal func responseObject<T: Decodable>(
-        responseToError: ((HTTPURLResponse?, Data?) -> Error?)? = nil,
         completionHandler: @escaping (RestResponse<T>) -> Void)
     {
         // execute the request
-        response(parseServiceError: responseToError) { data, response, error in
+        response { data, response, error in
 
             // ensure there is no underlying error
             guard error == nil else {
@@ -280,70 +215,8 @@ extension RestRequest {
             // parse json object
             let result: RestResult<T>
             do {
-                let object = try JSONDecoder().decode(T.self, from: data)
+                let object = try JSON.decoder.decode(T.self, from: data)
                 result = .success(object)
-            } catch {
-                result = .failure(error)
-            }
-
-            // execute completion handler
-            let dataResponse = RestResponse(response: response, data: data, result: result)
-            completionHandler(dataResponse)
-        }
-    }
-
-    /**
-     Execute this request and process the response body as a JSON array.
-
-     - responseToError: A function that can parse service-specific errors from the raw data response.
-     - path: The path at which to decode the JSON array.
-     - completionHandler: The completion handler to call when the request is complete.
-     */
-    internal func responseArray<T: JSONDecodable>(
-        responseToError: ((HTTPURLResponse?, Data?) -> Error?)? = nil,
-        path: [JSONPathType]? = nil,
-        completionHandler: @escaping (RestResponse<[T]>) -> Void)
-    {
-        // execute the request
-        response(parseServiceError: responseToError) { data, response, error in
-
-            // ensure there is no underlying error
-            guard error == nil else {
-                // swiftlint:disable:next force_unwrapping
-                let result = RestResult<[T]>.failure(error!)
-                let dataResponse = RestResponse(response: response, data: data, result: result)
-                completionHandler(dataResponse)
-                return
-            }
-
-            // ensure there is data to parse
-            guard let data = data else {
-                let result = RestResult<[T]>.failure(RestError.noData)
-                let dataResponse = RestResponse(response: response, data: nil, result: result)
-                completionHandler(dataResponse)
-                return
-            }
-
-            // parse json object
-            let result: RestResult<[T]>
-            do {
-                let json = try JSONWrapper(data: data)
-                var array: [JSONWrapper]
-                if let path = path {
-                    switch path.count {
-                    case 0: array = try json.getArray()
-                    case 1: array = try json.getArray(at: path[0])
-                    case 2: array = try json.getArray(at: path[0], path[1])
-                    case 3: array = try json.getArray(at: path[0], path[1], path[2])
-                    case 4: array = try json.getArray(at: path[0], path[1], path[2], path[3])
-                    case 5: array = try json.getArray(at: path[0], path[1], path[2], path[3], path[4])
-                    default: throw JSONWrapper.Error.keyNotFound(key: "ExhaustedVariadicParameterEncoding")
-                    }
-                } else {
-                    array = try json.getArray()
-                }
-                let objects: [T] = try array.map { json in try json.decode() }
-                result = .success(objects)
             } catch {
                 result = .failure(error)
             }
@@ -357,15 +230,13 @@ extension RestRequest {
     /**
      Execute this request and process the response body as a string.
 
-     - responseToError: A function that can parse service-specific errors from the raw data response.
      - completionHandler: The completion handler to call when the request is complete.
      */
     internal func responseString(
-        responseToError: ((HTTPURLResponse?, Data?) -> Error?)? = nil,
         completionHandler: @escaping (RestResponse<String>) -> Void)
     {
         // execute the request
-        response(parseServiceError: responseToError) { data, response, error in
+        response { data, response, error in
 
             // ensure there is no underlying error
             guard error == nil else {
@@ -402,15 +273,13 @@ extension RestRequest {
     /**
      Execute this request and ignore any response body.
 
-     - responseToError: A function that can parse service-specific errors from the raw data response.
      - completionHandler: The completion handler to call when the request is complete.
      */
     internal func responseVoid(
-        responseToError: ((HTTPURLResponse?, Data?) -> Error?)? = nil,
         completionHandler: @escaping (RestResponse<Void>) -> Void)
     {
         // execute the request
-        response(parseServiceError: responseToError) { data, response, error in
+        response { data, response, error in
 
             // ensure there is no underlying error
             guard error == nil else {

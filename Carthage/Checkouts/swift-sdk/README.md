@@ -21,6 +21,7 @@ There are many resources to help you build your first cognitive application with
 
 ### General
 
+* [Before you begin](#before-you-begin)
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Service Instances](#service-instances)
@@ -37,7 +38,8 @@ There are many resources to help you build your first cognitive application with
 
 * [Assistant](#assistant)
 * [Discovery](#discovery)
-* [Language Translator](#language-translator)
+* [Language Translator V2](#language-translator-v2)
+* [Language Translator V3](#language-translator-v3)
 * [Natural Language Classifier](#natural-language-classifier)
 * [Natural Language Understanding](#natural-language-understanding)
 * [Personality Insights](#personality-insights)
@@ -46,6 +48,9 @@ There are many resources to help you build your first cognitive application with
 * [Tone Analyzer](#tone-analyzer)
 * [Visual Recognition](#visual-recognition)
 
+## Before you begin
+* You need an [IBM Cloud][ibm-cloud-onboarding] account.
+ 
 ## Requirements
 
 - iOS 8.0+
@@ -93,7 +98,7 @@ Add the following to your `Package.swift` file to identify the Swift SDK as a de
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/watson-developer-cloud/swift-sdk", from: "0.26.0")
+    .package(url: "https://github.com/watson-developer-cloud/swift-sdk", from: "0.29.0")
 ]
 ```
 
@@ -137,7 +142,7 @@ let discovery = Discovery(username: "your-username-here", password: "your-passwo
 
 ### API Key
 
-_Note: This version of instantiation only works with Visual Recognition, as it's the only service that uses an API key._
+_Note: This type of authentication only works with Visual Recognition, and for instances created before May 23, 2018. Newer instances of Visual Recognition use IAM._
 
 ```swift
 let visualRecognition = VisualRecognition(apiKey: "your-apiKey-here", version: "your-version-here")
@@ -404,18 +409,27 @@ The following links provide more information about the IBM Discovery service:
 * [IBM Discovery - Documentation](https://console.bluemix.net/docs/services/discovery/index.html)
 * [IBM Discovery - Demo](https://discovery-news-demo.ng.bluemix.net/)
 
-## Language Translator
+## Language Translator V2
+
+### Deprecation notice
+Language Translator v3 is now available. The v2 Language Translator API will no longer be available after July 31, 2018.
+To take advantage of the latest service enhancements, migrate to the v3 API.
+View the [Migrating to Language Translator v3](https://console.bluemix.net/docs/services/language-translator/migrating.html) page for more information.
+
+
+## Language Translator V3
 
 The IBM Watson Language Translator service lets you select a domain, customize it, then identify or select the language of text, and then translate the text from one supported language to another.
 
 The following example demonstrates how to use the Language Translator service:
 
 ```swift
-import LanguageTranslatorV2
+import LanguageTranslatorV3
 
 let username = "your-username-here"
 let password = "your-password-here"
-let languageTranslator = LanguageTranslator(username: username, password: password)
+let version = "yyyy-mm-dd" // use today's date for the most recent version
+let languageTranslator = LanguageTranslator(username: username, password: password, version: version)
 
 let failure = { (error: Error) in print(error) }
 let request = TranslateRequest(text: ["Hello"], source: "en", target: "es")
@@ -827,13 +841,18 @@ import VisualRecognitionV3
 
 let apiKey = "your-apikey-here"
 let version = "YYYY-MM-DD" // use today's date for the most recent version
-let visualRecognition = VisualRecognition(apiKey: apiKey, version: version)
+let visualRecognition = VisualRecognition(version: version, apiKey: apiKey)
 
 let url = "your-image-url"
 let failure = { (error: Error) in print(error) }
 visualRecognition.classify(image: url, failure: failure) { classifiedImages in
     print(classifiedImages)
 }
+```
+
+Note: a different initializer is used for authentication with instances created before May 23, 2018:
+```swift
+let visualRecognition = VisualRecognition(apiKey: apiKey, version: version)
 ```
 
 ### Using Core ML
@@ -889,3 +908,5 @@ The following links provide more information about the IBM Watson Visual Recogni
 * [IBM Watson Visual Recognition - Service Page](https://www.ibm.com/watson/services/visual-recognition/)
 * [IBM Watson Visual Recognition - Documentation](https://console.bluemix.net/docs/services/visual-recognition/index.html)
 * [IBM Watson Visual Recognition - Demo](https://visual-recognition-demo.ng.bluemix.net/)
+
+[ibm-cloud-onboarding]: http://console.bluemix.net/registration?target=/developer/watson&cm_sp=WatsonPlatform-WatsonServices-_-OnPageNavLink-IBMWatson_SDKs-_-Swift

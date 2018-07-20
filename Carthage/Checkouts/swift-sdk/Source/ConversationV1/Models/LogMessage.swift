@@ -16,20 +16,28 @@
 
 import Foundation
 
-/** Log message details. */
+/**
+ Log message details.
+ */
 public struct LogMessage: Codable {
 
-    /// The severity of the log message.
+    /**
+     The severity of the log message.
+     */
     public enum Level: String {
         case info = "info"
         case error = "error"
         case warn = "warn"
     }
 
-    /// The severity of the log message.
+    /**
+     The severity of the log message.
+     */
     public var level: String
 
-    /// The text of the log message.
+    /**
+     The text of the log message.
+     */
     public var msg: String
 
     /// Additional properties associated with this model.
@@ -50,7 +58,12 @@ public struct LogMessage: Codable {
 
      - returns: An initialized `LogMessage`.
     */
-    public init(level: String, msg: String, additionalProperties: [String: JSON] = [:]) {
+    public init(
+        level: String,
+        msg: String,
+        additionalProperties: [String: JSON] = [:]
+    )
+    {
         self.level = level
         self.msg = msg
         self.additionalProperties = additionalProperties

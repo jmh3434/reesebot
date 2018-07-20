@@ -17,9 +17,11 @@
 import Foundation
 
 /** CreateVoiceModel. */
-public struct CreateVoiceModel: Encodable {
+internal struct CreateVoiceModel: Encodable {
 
-    /// The language of the new custom voice model. Omit the parameter to use the the default language, `en-US`.
+    /**
+     The language of the new custom voice model. Omit the parameter to use the the default language, `en-US`.
+     */
     public enum Language: String {
         case deDe = "de-DE"
         case enUs = "en-US"
@@ -33,13 +35,19 @@ public struct CreateVoiceModel: Encodable {
         case ptBr = "pt-BR"
     }
 
-    /// The name of the new custom voice model.
+    /**
+     The name of the new custom voice model.
+     */
     public var name: String
 
-    /// The language of the new custom voice model. Omit the parameter to use the the default language, `en-US`.
+    /**
+     The language of the new custom voice model. Omit the parameter to use the the default language, `en-US`.
+     */
     public var language: String?
 
-    /// A description of the new custom voice model. Specifying a description is recommended.
+    /**
+     A description of the new custom voice model. Specifying a description is recommended.
+     */
     public var description: String?
 
     // Map each property name to the key that shall be used for encoding/decoding.
@@ -53,12 +61,18 @@ public struct CreateVoiceModel: Encodable {
      Initialize a `CreateVoiceModel` with member variables.
 
      - parameter name: The name of the new custom voice model.
-     - parameter language: The language of the new custom voice model. Omit the parameter to use the the default language, `en-US`.
+     - parameter language: The language of the new custom voice model. Omit the parameter to use the the default
+       language, `en-US`.
      - parameter description: A description of the new custom voice model. Specifying a description is recommended.
 
      - returns: An initialized `CreateVoiceModel`.
     */
-    public init(name: String, language: String? = nil, description: String? = nil) {
+    public init(
+        name: String,
+        language: String? = nil,
+        description: String? = nil
+    )
+    {
         self.name = name
         self.language = language
         self.description = description

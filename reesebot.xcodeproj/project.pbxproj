@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3E033FEFC4AA9C753A0371D8 /* Pods_reesebotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D424A552874E8FBDC429C30 /* Pods_reesebotUITests.framework */; };
+		6A0EC2D421022594006FBCEC /* AssistantV1.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0EC2D321022594006FBCEC /* AssistantV1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6A0EC2D6210225A8006FBCEC /* DiscoveryV1.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A0EC2D5210225A8006FBCEC /* DiscoveryV1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6A47EBBA20C5C4F3003BD42B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBB920C5C4F3003BD42B /* AppDelegate.swift */; };
 		6A47EBBC20C5C4F3003BD42B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBBB20C5C4F3003BD42B /* ViewController.swift */; };
 		6A47EBBF20C5C4F3003BD42B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A47EBBD20C5C4F3003BD42B /* Main.storyboard */; };
@@ -45,6 +47,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		6A0EC2D221022579006FBCEC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6A0EC2D6210225A8006FBCEC /* DiscoveryV1.framework in CopyFiles */,
+				6A0EC2D421022594006FBCEC /* AssistantV1.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6A7E255820C5D51C0098F6FC /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -65,6 +78,8 @@
 		3CF1FC92CCB8CD9D811D954C /* Pods_reesebot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reesebot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F1C5A51F9912566C1C2A15E /* Pods-reesebotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reesebotUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-reesebotUITests/Pods-reesebotUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5EB2342A626C79CD8A51956C /* Pods-reesebotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reesebotTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-reesebotTests/Pods-reesebotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6A0EC2D321022594006FBCEC /* AssistantV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssistantV1.framework; path = Carthage/Build/iOS/AssistantV1.framework; sourceTree = "<group>"; };
+		6A0EC2D5210225A8006FBCEC /* DiscoveryV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiscoveryV1.framework; path = Carthage/Build/iOS/DiscoveryV1.framework; sourceTree = "<group>"; };
 		6A47EBB620C5C4F3003BD42B /* reesebot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reesebot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A47EBB920C5C4F3003BD42B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A47EBBB20C5C4F3003BD42B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +139,8 @@
 		6A47EBAD20C5C4F3003BD42B = {
 			isa = PBXGroup;
 			children = (
+				6A0EC2D5210225A8006FBCEC /* DiscoveryV1.framework */,
+				6A0EC2D321022594006FBCEC /* AssistantV1.framework */,
 				6A815BC420C5DF8D008F7266 /* Bridging-Header.h */,
 				6A47EBB820C5C4F3003BD42B /* reesebot */,
 				6A47EBD020C5C4F5003BD42B /* reesebotTests */,
@@ -217,6 +234,8 @@
 				6A47EBED20C5D075003BD42B /* ShellScript */,
 				6A7E255820C5D51C0098F6FC /* Embed Frameworks */,
 				688B6D4F3180E0A65960AD50 /* [CP] Embed Pods Frameworks */,
+				6A0EC2D221022579006FBCEC /* CopyFiles */,
+				6A0EC2D721026CA8006FBCEC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -358,18 +377,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-reesebot/Pods-reesebot-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6A47EBED20C5D075003BD42B /* ShellScript */ = {
+		6A0EC2D721026CA8006FBCEC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
+		};
+		6A47EBED20C5D075003BD42B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/AssistantV1.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/DiscoveryV1.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			showEnvVarsInLog = 0;
 		};
 		89D13E339404C23597301A3B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

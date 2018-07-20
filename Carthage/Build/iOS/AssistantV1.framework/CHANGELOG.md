@@ -1,6 +1,31 @@
 Change Log
 ==========
 
+## Version 0.29.0
+_2018-06-29_
+
+This release regenerates all services with generator updates for error handling and multi-consumes operations.
+
+The release also adds a deprecation notice for the Language Translator v2 service.  Users are encouraged to migrate
+to the new Language Translator v3 service.
+
+This release should be fully compatible with the previous SDK release.
+
+## Version 0.28.1
+_2018-06-21_
+
+This release regenerates just the NLC service to add support for IAM authentication.
+
+## Version 0.28.0
+_2018-06-12_
+
+This release regenerates all services. It includes updates to the documentation and some minor new service features.
+
+This release includes the following new features and bug fixes:
+
+- Adds support for the new Language Translator V3 service and deprecates Language Translator V2
+- Fix for issue 833
+
 ## Version 0.27.0
 _2018-05-28_
 

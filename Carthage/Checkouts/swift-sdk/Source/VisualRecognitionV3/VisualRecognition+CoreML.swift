@@ -338,17 +338,22 @@ extension VisualRecognition {
         failure: ((Error) -> Void)? = nil,
         success: (() -> Void)? = nil)
     {
+        // construct header parameters
+        var headerParameters = defaultHeaders
+        headerParameters["Accept"] = "application/octet-stream"
+
         // construct query parameters
         var queryParameters = [URLQueryItem]()
         queryParameters.append(URLQueryItem(name: "version", value: version))
 
         // construct REST request
         let request = RestRequest(
+            session: session,
+            authMethod: authMethod,
+            errorResponseDecoder: errorResponseDecoder,
             method: "GET",
             url: serviceURL + "/v3/classifiers/\(classifierID)/core_ml_model",
-            authMethod: authMethod,
-            headerParameters: defaultHeaders,
-            acceptType: "application/octet-stream",
+            headerParameters: headerParameters,
             queryItems: queryParameters
         )
 

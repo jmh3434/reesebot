@@ -96,12 +96,6 @@
                 <a href="../Structs/Corpus/Status.html">– Status</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/CreateAcousticModel.html">CreateAcousticModel</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/CreateAcousticModel/BaseModelName.html">– BaseModelName</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/CreateLanguageModel.html">CreateLanguageModel</a>
               </li>
               <li class="nav-group-task">
@@ -109,12 +103,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CustomWord.html">CustomWord</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/CustomWords.html">CustomWords</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs.html#/s:14SpeechToTextV111JSONWrapperV">JSONWrapper</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/KeywordResult.html">KeywordResult</a>
@@ -224,7 +212,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The type of the audio resource: * <code>audio</code> for an individual audio file * <code>archive</code> for an archive (<strong>.zip</strong> or <strong>.tar.gz</strong>) file that contains audio files.</p>
+                        <p>The type of the audio resource:</p>
+
+<ul>
+<li><code>audio</code> for an individual audio file</li>
+<li><code>archive</code> for an archive (<strong>.zip</strong> or <strong>.tar.gz</strong>) file that contains audio files</li>
+<li><code>undetermined</code> for a resource that the service cannot validate (for example, if the user mistakenly passes a file
+that does not contain audio, such as a JPEG file).</li>
+</ul>
 
                         <a href="../Structs/AudioDetails/ModelType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -252,7 +247,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>For an archive-type resource,** the format of the compressed archive: * <code>zip</code> for a <strong>.zip</strong> file * <code>gzip</code> for a <strong>.tar.gz</strong> file   Omitted for an audio-type resource.</p>
+                        <p><strong>For an archive-type resource,</strong> the format of the compressed archive:</p>
+
+<ul>
+<li><code>zip</code> for a <strong>.zip</strong> file</li>
+<li><code>gzip</code> for a <strong>.tar.gz</strong> file
+Omitted for an audio-type resource.</li>
+</ul>
 
                         <a href="../Structs/AudioDetails/Compression.html" class="slightly-smaller">See more</a>
                       </div>
@@ -280,7 +281,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The type of the audio resource: * <code>audio</code> for an individual audio file * <code>archive</code> for an archive (<strong>.zip</strong> or <strong>.tar.gz</strong>) file that contains audio files.</p>
+                        <p>The type of the audio resource:</p>
+
+<ul>
+<li><code>audio</code> for an individual audio file</li>
+<li><code>archive</code> for an archive (<strong>.zip</strong> or <strong>.tar.gz</strong>) file that contains audio files</li>
+<li><code>undetermined</code> for a resource that the service cannot validate (for example, if the user mistakenly passes a file
+that does not contain audio, such as a JPEG file).</li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -334,7 +342,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>For an audio-type resource,** the sampling rate of the audio in Hertz (samples per second). Omitted for an archive-type resource.</p>
+                        <p><strong>For an audio-type resource,</strong> the sampling rate of the audio in Hertz (samples per second). Omitted for an
+archive-type resource.</p>
 
                       </div>
                       <div class="declaration">
@@ -361,7 +370,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>For an archive-type resource,** the format of the compressed archive: * <code>zip</code> for a <strong>.zip</strong> file * <code>gzip</code> for a <strong>.tar.gz</strong> file   Omitted for an audio-type resource.</p>
+                        <p><strong>For an archive-type resource,</strong> the format of the compressed archive:</p>
+
+<ul>
+<li><code>zip</code> for a <strong>.zip</strong> file</li>
+<li><code>gzip</code> for a <strong>.tar.gz</strong> file
+Omitted for an audio-type resource.</li>
+</ul>
 
                       </div>
                       <div class="declaration">
@@ -380,7 +395,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-05-29)</p>
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-06-29)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
