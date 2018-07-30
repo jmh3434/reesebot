@@ -41,6 +41,7 @@
 - (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar
       didPressRightBarButton:(UIButton *)sender;
 
+
 /**
  *  Tells the delegate that the toolbar's `leftBarButtonItem` has been pressed.
  *

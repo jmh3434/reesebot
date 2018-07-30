@@ -17,15 +17,21 @@ class ViewController: JSQMessagesViewController {
     var result = String()
     var newText = String()
     var messageValue = String()
-    
+    var assistantHelped = Bool()
     var userText = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        assistantHelped = false
+//        let screenSize: CGRect = UIScreen.main.bounds
+//        let myView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width , height: 60))
+//        myView.backgroundColor = UIColor.black
+//        self.view.addSubview(myView)
         
-        
+    
         senderId = "1234"
         senderDisplayName = "James Hunt"
+        
         
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
@@ -40,6 +46,11 @@ class ViewController: JSQMessagesViewController {
         button.setTitle("Share", for: .normal)
         if let image  = UIImage(named: "share.png") {
             button.setImage(image, for: UIControlState.normal)
+        }
+        if let image  = UIImage(named: "pulse_logo.png") {
+            let imageView = UIImageView(image: image)
+            imageView.frame = CGRect(x: 168, y: 34, width: 30, height: 29)
+            view.addSubview(imageView)
         }
         button.backgroundColor = .white
         
@@ -81,6 +92,8 @@ class ViewController: JSQMessagesViewController {
         self.present(activityViewController, animated: true, completion: nil)
     }
     
+
+    var newURL = String()
     func discover(){
         let username = "71dc0668-7297-4500-bd89-9e6da3c60643"
         let password = "pjW0skCcw2Yp"
@@ -89,13 +102,29 @@ class ViewController: JSQMessagesViewController {
         
         let failure = { (error: Error) in print("failure") }
         
+        
         discovery.query(
             environmentID: "24e532bb-8c78-4f06-ad3f-1e19188d1114",//"24e532bb-8c78-4f06-ad3f-1e19188d1114",//
             collectionID: "5086ef4c-255a-40a1-bf4a-f35b49791bbb",//"aecc486d-0c37-42bb-a959-770a517cee4c",//
+            filter: userText,
             query: userText,
             failure: failure)
         {
             queryResponse in
+            
+            print("query response", queryResponse)
+            //var myurl = queryResponse.results?.description[additionalProperties]
+            var queryResult = [QueryResult]()
+            queryResult = queryResponse.results!
+            for eachQueryResult in queryResult {
+                print(eachQueryResult)
+                let dicitonary: [String : DiscoveryV1.JSON] = eachQueryResult.additionalProperties
+                print("new data url ",dicitonary["url"],"end")
+                
+                
+                
+            }
+
             
             print("result is:", queryResponse.results!)
             let qrd = queryResponse.results?.description
@@ -106,7 +135,6 @@ class ViewController: JSQMessagesViewController {
             
             let arr = qrdS.components(separatedBy: "\"url\": DiscoveryV1.JSON.string(\"")
             let arr3 = qrdS.components(separatedBy: "\"relevance\": DiscoveryV1.JSON.double(")
-            
             
             
                 let beforeUrl:String? = arr[0]
@@ -131,9 +159,13 @@ class ViewController: JSQMessagesViewController {
                         let newString = manipUrl
                 
                         DispatchQueue.main.async {
-                            self.addMessage(withId: "3434", name: "Watson", text: "I found this article to help: \(newString)")
-                            self.finishReceivingMessage()
-                            self.collectionView.reloadData()
+                            if !self.assistantHelped{
+                                self.addMessage(withId: "3434", name: "Watson", text: "I found this article to help: \(newString)")
+                                self.finishReceivingMessage()
+                                self.collectionView.reloadData()
+                            }
+                           
+                            
                             
                         }
                         print("manip",manipUrl)
@@ -147,7 +179,8 @@ class ViewController: JSQMessagesViewController {
                 let newString3 = manipUrl3
                 
                 DispatchQueue.main.async {
-                    self.addMessage(withId: "3434", name: "Watson", text: "My confidence is: \(newString3)")
+                    //self.addMessage(withId: "3434", name: "Watson", text: "My confidence is: \(newString3)")
+                    print("my confidence is \(newString3)")
                     self.finishReceivingMessage()
                     self.collectionView.reloadData()
                     
@@ -157,7 +190,15 @@ class ViewController: JSQMessagesViewController {
             }
         }
     }
-    
+    func getImageWithColor(color: UIColor, size: CGSize) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
     
     // watson
     func assistantExample(message:String)  {
@@ -181,14 +222,14 @@ class ViewController: JSQMessagesViewController {
            // let input = InputData(text: "What's happening this weekend")
             let input = InputData(text: message)
             let request = MessageRequest(input: input, context: response.context)
-            if response.output.text.joined() != "Sorry, I don't know about that one!" {
+            
                 assistant.message(workspaceID: workspace, request: request) { response in
                     
                     print("Response: \(response.output.text.joined())")
                     
-                    if response.output.text.joined() != "Come again?" && response.output.text.joined() != "I am not sure." {
+                    if response.output.text.joined() != "Come again?" && response.output.text.joined() != "I am not sure." && response.output.text.joined() != "Sorry, I don't know about that one!" {
                     
-                    
+                    self.assistantHelped = true
                     
                     let assistantText = String((response.output.text.joined()))
                     DispatchQueue.main.async {
@@ -196,20 +237,15 @@ class ViewController: JSQMessagesViewController {
                         
                             
                         
+                      
                         
                         self.addMessage(withId: "3434", name: "Watson", text: "Assistant: \(assistantText)")
                                 
                                 print("assistant helped")
-                                
-                        
-                            
-                            
-                            
-                            
-                            
-                        
+                     
                         self.finishReceivingMessage()
                         self.collectionView.reloadData()
+                        
                     }
                     
                     
@@ -218,7 +254,7 @@ class ViewController: JSQMessagesViewController {
 
                 
             }
-            }
+            
         }
         
     }
@@ -259,13 +295,15 @@ class ViewController: JSQMessagesViewController {
     {
         return messages.count
     }
+    let color1 = UIColor(rgb: 0x49bfff)
+    let color2 = UIColor(rgb: 0x0b205d)
     
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
-        return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+        return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: color2)
     }()
     
     lazy var incomingBubble: JSQMessagesBubbleImage = {
-        return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+        return JSQMessagesBubbleImageFactory()!.incomingMessagesBubbleImage(with: color1)
     }()
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource!
     {
@@ -288,17 +326,35 @@ class ViewController: JSQMessagesViewController {
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!)
     {
         
-        
+        assistantHelped = false
         addMessage(withId: "1234", name: "James Hunt", text: messageValue)
         assistantExample(message: messageValue)
         self.userText = self.messageValue
-        self.discover()
         finishSendingMessage()
+        self.discover()
+        
         
         
         
         
     }
     
+}
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(rgb: Int) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF
+        )
+    }
 }
 
