@@ -20,8 +20,18 @@ class ViewController: JSQMessagesViewController {
     var assistantHelped = Bool()
     var userText = String()
     
+    
     override func viewDidLoad() {
+        
+        
+        
         super.viewDidLoad()
+        
+        
+        
+        
+        
+        
         assistantHelped = false
 //        let screenSize: CGRect = UIScreen.main.bounds
 //        let myView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width , height: 60))
@@ -47,11 +57,11 @@ class ViewController: JSQMessagesViewController {
         if let image  = UIImage(named: "share.png") {
             button.setImage(image, for: UIControlState.normal)
         }
-        if let image  = UIImage(named: "pulse_logo.png") {
-            let imageView = UIImageView(image: image)
-            imageView.frame = CGRect(x: 168, y: 34, width: 30, height: 29)
-            view.addSubview(imageView)
-        }
+//        if let image  = UIImage(named: "pulse_logo.png") {
+//            let imageView = UIImageView(image: image)
+//            imageView.frame = CGRect(x: 168, y: 34, width: 30, height: 29)
+//            view.addSubview(imageView)
+//        }
         button.backgroundColor = .white
         
         button.setTitleColor(UIColor.black, for: .normal)
@@ -239,7 +249,7 @@ class ViewController: JSQMessagesViewController {
                         
                       
                         
-                        self.addMessage(withId: "3434", name: "Watson", text: "Assistant: \(assistantText)")
+                        self.addMessage(withId: "3434", name: "Watson", text: "\(assistantText)")
                                 
                                 print("assistant helped")
                      
