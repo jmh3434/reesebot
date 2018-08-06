@@ -20,6 +20,7 @@
 		6A47EBDD20C5C4F5003BD42B /* reesebotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47EBDC20C5C4F5003BD42B /* reesebotUITests.swift */; };
 		6A7E255B20C5D5230098F6FC /* AssistantV1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A47EBEB20C5D048003BD42B /* AssistantV1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6A7E255C20C5D5820098F6FC /* AssistantV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A47EBEB20C5D048003BD42B /* AssistantV1.framework */; };
+		6A82C7482117F0B1000A70F2 /* chat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A82C7472117F0B1000A70F2 /* chat.wav */; };
 		6A9062CF20E57E0C00306BD6 /* unc.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9062CE20E57E0C00306BD6 /* unc.png */; };
 		6A9062D120E57FC200306BD6 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9062D020E57FC200306BD6 /* share.png */; };
 		6AAD51A820C7083900AB746D /* DiscoveryV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAD51A720C7083900AB746D /* DiscoveryV1.framework */; };
@@ -96,6 +97,7 @@
 		6A47EBDE20C5C4F5003BD42B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A47EBEB20C5D048003BD42B /* AssistantV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssistantV1.framework; path = Carthage/Build/iOS/AssistantV1.framework; sourceTree = "<group>"; };
 		6A815BC420C5DF8D008F7266 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "reesebot/Bridging-Header.h"; sourceTree = "<group>"; };
+		6A82C7472117F0B1000A70F2 /* chat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chat.wav; sourceTree = "<group>"; };
 		6A9062CE20E57E0C00306BD6 /* unc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unc.png; sourceTree = "<group>"; };
 		6A9062D020E57FC200306BD6 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		6AAD51A720C7083900AB746D /* DiscoveryV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiscoveryV1.framework; path = Carthage/Build/iOS/DiscoveryV1.framework; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				6A47EBC020C5C4F3003BD42B /* reesebot.xcdatamodeld */,
 				6A9062CE20E57E0C00306BD6 /* unc.png */,
 				6A9062D020E57FC200306BD6 /* share.png */,
+				6A82C7472117F0B1000A70F2 /* chat.wav */,
 			);
 			path = reesebot;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A82C7482117F0B1000A70F2 /* chat.wav in Resources */,
 				6A9062CF20E57E0C00306BD6 /* unc.png in Resources */,
 				6A47EBC720C5C4F5003BD42B /* LaunchScreen.storyboard in Resources */,
 				6A9062D120E57FC200306BD6 /* share.png in Resources */,
@@ -388,7 +392,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
+			shellScript = "";
 		};
 		6A47EBED20C5D075003BD42B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -9,6 +9,7 @@
 import UIKit
 import AssistantV1
 import DiscoveryV1
+import AVFoundation
 
 class ViewController: JSQMessagesViewController {
     
@@ -19,6 +20,8 @@ class ViewController: JSQMessagesViewController {
     var messageValue = String()
     var assistantHelped = Bool()
     var userText = String()
+    var player: AVAudioPlayer?
+
     
     
     override func viewDidLoad() {
@@ -26,6 +29,9 @@ class ViewController: JSQMessagesViewController {
         
         
         super.viewDidLoad()
+        
+        
+        
         
         
         
@@ -71,6 +77,29 @@ class ViewController: JSQMessagesViewController {
         
         
     }
+    func playSound() {
+        guard let url = Bundle.main.url(forResource: "chat", withExtension: "wav") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            
+            
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            /* iOS 10 and earlier require the following line:
+             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+            
+            guard let player = player else { return }
+            
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
     @objc func buttonTapped(sender : UIButton) {
         print("share")
         let firstActivityItem = "Checkout Port City Pulse"
@@ -105,6 +134,7 @@ class ViewController: JSQMessagesViewController {
 
     var newURL = String()
     func discover(){
+       
         let username = "71dc0668-7297-4500-bd89-9e6da3c60643"
         let password = "pjW0skCcw2Yp"
         let version = "2018-06-05" // use today's date for the most recent version
@@ -167,9 +197,13 @@ class ViewController: JSQMessagesViewController {
                         let incUrlManip = incUrlAfter1.components(separatedBy: "\")")
                         let manipUrl    = incUrlManip[0]
                         let newString = manipUrl
+                        if !self.assistantHelped {
+                            self.playSound()
+                        }
                 
                         DispatchQueue.main.async {
                             if !self.assistantHelped{
+                                
                                 self.addMessage(withId: "3434", name: "Watson", text: "I found this article to help: \(newString)")
                                 self.finishReceivingMessage()
                                 self.collectionView.reloadData()
@@ -190,6 +224,7 @@ class ViewController: JSQMessagesViewController {
                 
                 DispatchQueue.main.async {
                     //self.addMessage(withId: "3434", name: "Watson", text: "My confidence is: \(newString3)")
+                    
                     print("my confidence is \(newString3)")
                     self.finishReceivingMessage()
                     self.collectionView.reloadData()
@@ -238,13 +273,13 @@ class ViewController: JSQMessagesViewController {
                     print("Response: \(response.output.text.joined())")
                     
                     if response.output.text.joined() != "Come again?" && response.output.text.joined() != "I am not sure." && response.output.text.joined() != "Sorry, I don't know about that one!" {
-                    
+                   
                     self.assistantHelped = true
                     
                     let assistantText = String((response.output.text.joined()))
                     DispatchQueue.main.async {
                         
-                        
+                         self.playSound()
                             
                         
                       
