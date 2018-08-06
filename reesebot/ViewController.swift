@@ -21,6 +21,7 @@ class ViewController: JSQMessagesViewController {
     var assistantHelped = Bool()
     var userText = String()
     var player: AVAudioPlayer?
+    var weatherSummary = String()
 
     
     
@@ -31,7 +32,8 @@ class ViewController: JSQMessagesViewController {
         super.viewDidLoad()
         
         
-        
+     
+        getWeather()
         
         
         
@@ -77,6 +79,22 @@ class ViewController: JSQMessagesViewController {
         
         
     }
+    func getWeather() {
+        WeatherSummary.forecast(withLocation: "34.2228,-77.8929") { (results:[WeatherSummary]) in
+            for result in results {
+                DispatchQueue.main.async {
+                    let weatherSum = result.summary
+                    //self.labelSum.text = weatherSum
+                    print("weatherSum",weatherSum)
+                    self.weatherSummary = weatherSum
+                    
+                    
+                }
+                break
+            }
+        }
+    }
+    
     func playSound() {
         guard let url = Bundle.main.url(forResource: "chat", withExtension: "wav") else { return }
         
@@ -247,7 +265,20 @@ class ViewController: JSQMessagesViewController {
     
     // watson
     func assistantExample(message:String)  {
-        
+        if message.range(of:"weather") != nil || message.range(of:"Weather") != nil {
+            
+            assistantHelped = true
+            DispatchQueue.main.async {
+                
+                self.playSound()
+            
+                self.addMessage(withId: "3434", name: "Watson", text: "\(self.weatherSummary)")
+                
+                self.finishReceivingMessage()
+                self.collectionView.reloadData()
+                
+            }
+        }
         // Assistant credentials
         let username = "124663f7-0eb9-467f-9d1d-e1213e949253"
         let password = "b5apsFpys2tV"
